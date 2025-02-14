@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Home{% endblock %}
+{% block head %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'home.css' %}">
+    <script src="{% static 'home.js' %}"></script>
+    <style>
+        section#intro {
+            background: url("{% static 'images/black.jpg' %}") no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        section#about {
+            background: lightgrey;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <section id="intro">
+        <div>
+            <h1>Hello!</h1>
+            <h2>My name is Ian Xie. I am a:</h2>
+            <h2 id="dynamic-role" class="dynamic-role"></h2>
+            <button onclick="window.location.href='#about'">About Me</button>
+        </div>
+        <img src="{% static 'images/image-1.jpg' %}" alt="image-1.jpg">
+    </section>
+
+    <section id="about">
+        <div>
+            <h1>About me</h1>
+            <p>
+                I am a software engineer with a passion for web development. I have some experiences in mostly front-end but also back-end development. I am proficient in HTML, CSS, and JavaScript, as well as some Python. I am also familiar with React and Node.js. I am always eager to learn new technologies and improve my skills.
+            </p>
+            <button onclick="window.location.href='#explore'">Explore more!</button>
+        </div>
+        <img src="{% static 'images/image-2.jpg' %}" alt="image-1.jpg">
+    </section>
+
+    <section id="explore">
+        <div>
+            <h1>Hello!</h1>
+            <h2>My name is Ian Xie. I am a</h2>
+            <button onclick="window.location.href='#intro'">Back to the top</button>
+        </div>
+        <img src="{% static 'images/image-1.jpg' %}" alt="image-1.jpg">
+    </section>
+{% endblock %}

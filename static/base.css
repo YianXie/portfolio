@@ -1,0 +1,108 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Change the style of the scroll bar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: darkgrey;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: grey;
+    cursor: pointer;
+}
+
+html,
+body {
+    height: 100%;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.9);
+    color: white;
+    overflow-x: hidden;
+}
+
+header>nav {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    background-color: black;
+    color: white;
+    width: 100%;
+    padding: 20px;
+    transition: all 0.2s ease-in;
+    z-index: 1;
+}
+
+header>nav.scroll {
+    background-color: rgba(255, 0, 0, 0.8);
+    padding: 15px 20px;
+}
+
+/* The first child is the title */
+header>nav>a:first-child {
+    font-size: 2rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    margin-right: auto;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+header>nav>a:not(:first-child) {
+    position: relative;
+    font-weight: bold;
+    font-size: 1.2rem;
+    text-decoration: none;
+    color: white;
+    margin: 10px;
+    transition: opacity 0.2s ease-in-out;
+    cursor: pointer;
+
+    &:hover::before {
+        width: 100%;
+    }
+
+    &:active {
+        opacity: 0.8;
+    }
+}
+
+/* pseudo element */
+header>nav>a::before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 100%;
+    left: 0;
+    top: calc(50% + 2px);
+    transform: translateY(-50%);
+    border-bottom: 2px solid white;
+    transition: width 0.25s ease-in-out;
+}
+
+footer {
+    position: relative;
+    background-color: black;
+    color: white;
+    width: 100%;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    padding: 10px;
+    margin-top: auto;
+}

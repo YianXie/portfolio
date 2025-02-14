@@ -1,0 +1,40 @@
+<!-- This is the base template for all the other templates to extend from. -->
+<!-- It contains the basic structure of the website, including the header, main content, and footer. -->
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'base.css' %}">
+    <script src="{% static 'base.js' %}"></script>
+    <title>Ian's Portfolio - {% block title %}{% endblock %}</title>
+    {% block head %}
+    {% endblock %}
+</head>
+
+<body>
+    <header>
+        <nav>
+            <a href="{% url 'home' %}">Ian's Portfolio</a>
+            <a href="{% url 'projects' %}">Projects</a>
+            <a href="{% url 'contributions' %}">Contributions</a>
+            <a href="{% url 'contacts' %}">Contacts</a>
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer>
+        <p>&copy; Ian Xie's portfolio</p>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,114 @@
+@property --degree {
+    syntax: "<angle>";
+    inherits: false;
+    initial-value: 90deg;
+}
+
+section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    color: white;
+}
+
+section>div {
+    max-width: 50%;
+}
+
+section#intro h1 {
+    font-size: 6rem;
+    background: linear-gradient(var(--degree), orangered, orange, yellow, lightgreen, lightblue);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: rotate 5s linear infinite;
+}
+
+section#intro h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin: 1rem 0;
+}
+
+section#intro h2.dynamic-role {
+    color: red;
+}
+
+/* Keep the height constant */
+section#intro h2.dynamic-role::before {
+    content: '\200b';
+    /* Zero-width space */
+    display: inline-block;
+}
+
+section#about {
+    color: black;
+}
+
+section#about h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    margin: 1rem 0;
+}
+
+section#about p {
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin: 1rem 0;
+    line-height: 1.3;
+}
+
+section button {
+    position: relative;
+    padding: 1rem 2rem;
+    margin: 2rem 0;
+    font-size: 1.5rem;
+    font-weight: 500;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    background: red;
+    border: 2px solid red;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background 0.3s ease-out;
+
+    &:hover {
+        background: transparent;
+    }
+}
+
+section>img {
+    position: relative;
+    height: auto;
+    width: clamp(100px, 20vw, 200px);
+    border-radius: 50%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    user-select: none;
+    pointer-events: none;
+}
+
+@keyframes rotate {
+    0% {
+        --degree: 0deg;
+    }
+
+    25% {
+        --degree: 90deg;
+    }
+
+    50% {
+        --degree: 180deg;
+    }
+
+    75% {
+        --degree: 270deg;
+    }
+
+    100% {
+        --degree: 360deg;
+    }
+}
