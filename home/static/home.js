@@ -6,7 +6,6 @@ document.addEventListener("DOMContentLoaded", async function () {
         // Append the text
         for (let l = 0; l < roles[c].length; l++) {
             role.innerHTML += roles[c][l];
-            // role.style.opacity = (1 / roles[c].length * l);
             await sleep(75);
         }
 
@@ -16,7 +15,6 @@ document.addEventListener("DOMContentLoaded", async function () {
         // Remove the text
         while (role.innerHTML.length > 0) {
             role.innerHTML = role.innerHTML.slice(0, role.innerHTML.length - 1);
-            // role.style.opacity = (1 / roles[c].length * role.innerHTML.length);
             await sleep(40);
         }
 

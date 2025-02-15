@@ -10,10 +10,14 @@ section {
     justify-content: space-around;
     align-items: center;
     gap: 3rem;
-    height: 80vh;
+    min-height: 80vh;
     width: 100vw;
     padding: 0 10%;
     color: white;
+}
+
+section#intro {
+    justify-content: flex-start;
 }
 
 section#intro h1 {
@@ -35,11 +39,11 @@ section#intro h2.dynamic-role {
     color: red;
 }
 
-/* Keep the height constant */
-section#intro h2.dynamic-role::before {
-    content: '\200b';
-    /* Zero-width space */
+/* The cursor */
+section#intro h2.dynamic-role::after {
+    content: '|';
     display: inline-block;
+    animation: blink 1s linear infinite;
 }
 
 section#about {
@@ -150,7 +154,7 @@ section#social-media>.socials>div {
 }
 
 section#social-media i {
-    font-size: 15em;
+    font-size: 10rem;
     cursor: pointer;
     transition: all 0.3s ease-out;
 
@@ -172,6 +176,7 @@ section button {
     border: 2px solid red;
     border-radius: 0.5rem;
     cursor: pointer;
+    user-select: none;
     transition: background 0.3s ease-out;
 
     &:hover {
@@ -213,6 +218,20 @@ section img {
     }
 }
 
+@keyframes blink {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
 @media only screen and (max-width: 768px) {
     section {
         padding: 0 5%;
@@ -220,6 +239,7 @@ section img {
 
     section#social-media>.socials {
         flex-direction: column;
+        gap: 2rem;
     }
 
     section img {

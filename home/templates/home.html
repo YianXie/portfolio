@@ -18,8 +18,7 @@
         }
 
         section#social-media {
-            background: url("{% static 'images/social-media.jpg' %}") no-repeat center center fixed;
-            background-size: cover;
+            background: darkslategray;
         }
     </style>
 {% endblock %}
@@ -32,7 +31,7 @@
             <h2 id="dynamic-role" class="dynamic-role"></h2>
             <button onclick="window.location.href='#about'">About Me</button>
         </div>
-        <img src="{% static 'images/image-1.jpg' %}" alt="image-1.jpg">
+        {% comment %} <img src="{% static 'images/image-1.jpg' %}" alt="image-1.jpg"> {% endcomment %}
     </section>
 
     <section id="about">
@@ -88,12 +87,12 @@
                 <p>GitHub</p>
             </div>
             <div>
-                <i class='bx bxs-envelope' onclick="window.open('mailto:yianxie52@gmail.com')"></i>
-                <p>Email</p>
+                <i class='bx bxl-instagram-alt' onclick="window.open('https://www.instagram.com/xya_ian_sg/')"></i>
+                <p>Instagram</p>
             </div>
             <div>
-                <i class='bx bxs-phone-call' onclick="window.open('tel:+65-8525-9562')"></i>
-                <p>Call me</p>
+                <i class='bx bxs-envelope' onclick="window.open('mailto:yianxie52@gmail.com')"></i>
+                <p>Email</p>
             </div>
         </div>
         <button onclick="window.location.href='#intro'">Back to the top</button>

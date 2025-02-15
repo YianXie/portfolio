@@ -21,12 +21,24 @@
 <body>
     <header>
         <nav>
-            <a href="{% url 'home' %}">Ian's Portfolio</a>
-            <a href="{% url 'projects' %}">Projects</a>
-            <a href="{% url 'contributions' %}">Contributions</a>
-            <a href="{% url 'contacts' %}">Contacts</a>
+            <a href="{% url 'home' %}" title="Home">Ian's Portfolio</a>
+            <a href="{% url 'projects' %}" class="hide-mobile">Projects</a>
+            <a href="{% url 'contributions' %}" class="hide-mobile">Contributions</a>
+            <a href="{% url 'contacts' %}" class="hide-mobile">Contacts</a>
+            <i class='bx bxl-github hide-mobile' title="GitHub repositeries" onclick="window.open('https://github.com/YianXie/portfolio')"></i>
+            <i class='bx bx-list-ul show-mobile' id="mobile-burger-menu" onclick="toggleMobileBurger()"></i>
         </nav>
     </header>
+
+    <div id="mobile-burger">
+        <i class='bx bx-x' id="close-mobile-burger" onclick="toggleMobileBurger()"></i>
+        <ul>
+            <li><a href="{% url 'projects' %}">Projects</a></li>
+            <li><a href="{% url 'contributions' %}">Contributions</a></li>
+            <li><a href="{% url 'contacts' %}">Contacts</a></li>
+            <li><a href="https://github.com/YianXie/portfolio">GitHub</a></li>
+        </ul>
+    </div>
 
     <main>
         {% block content %}
