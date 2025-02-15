@@ -6,12 +6,12 @@
 
 section {
     display: flex;
-    /* flex-wrap: wrap; */
+    flex-wrap: nowrap;
     justify-content: space-around;
     align-items: center;
     gap: 3rem;
-    height: 100vh;
-    width: 100%;
+    height: 80vh;
+    width: 100vw;
     padding: 0 10%;
     color: white;
 }
@@ -44,6 +44,23 @@ section#intro h2.dynamic-role::before {
 
 section#about {
     color: black;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+section#about .about-me {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    width: 100%;
+}
+
+section#about .about-me>div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
 }
 
 section#about h1 {
@@ -58,6 +75,15 @@ section#about p {
     text-align: justify;
     margin: 1rem 0;
     line-height: 1.5;
+}
+
+section#about img {
+    height: clamp(100px, 40vw, 500px);
+    width: auto;
+    border-radius: 5px;
+    aspect-ratio: 9 / 16;
+    object-fit: cover;
+    border: 1px solid black;
 }
 
 section#coding h1 {
@@ -96,26 +122,26 @@ section#coding progress::-webkit-progress-value {
     border-radius: 0.5rem;
 }
 
-section#explore {
+section#social-media {
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
 }
 
-section#explore h1 {
+section#social-media h1 {
     font-size: 3rem;
     font-weight: bold;
     margin: 1rem 0 2rem 0;
 }
 
-section#explore>.socials {
+section#social-media>.socials {
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
 }
 
-section#explore>.socials>div {
+section#social-media>.socials>div {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -123,14 +149,14 @@ section#explore>.socials>div {
     gap: 0.5rem;
 }
 
-section#explore i {
+section#social-media i {
     font-size: 15em;
     cursor: pointer;
-    border-radius: 50%;
-    transition: box-shadow 0.3s ease-out;
+    transition: all 0.3s ease-out;
 
     &:hover {
-        box-shadow: 0 0 1rem white;
+        transform: translateY(-0.5rem);
+        opacity: 0.8;
     }
 }
 
@@ -192,7 +218,11 @@ section img {
         padding: 0 5%;
     }
 
-    section>img {
+    section#social-media>.socials {
+        flex-direction: column;
+    }
+
+    section img {
         display: none;
     }
 }

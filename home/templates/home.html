@@ -10,10 +10,16 @@
         section#intro {
             background: url("{% static 'images/black.jpg' %}") no-repeat center center fixed;
             background-size: cover;
+            height: 100vh;
         }
 
         section#about {
-            background: lightgrey;
+            background: #f0f0f0;
+        }
+
+        section#social-media {
+            background: url("{% static 'images/social-media.jpg' %}") no-repeat center center fixed;
+            background-size: cover;
         }
     </style>
 {% endblock %}
@@ -32,12 +38,17 @@
     <section id="about">
         <div>
             <h1>About me</h1>
-            <p>
-                I am a high school student with a passion for web development. I have some experiences in mostly front-end but also back-end development. I am proficient in HTML, CSS, and JavaScript, as well as some Python. I am also familiar with React and Node.js. I am always eager to learn new technologies and improve my skills.
-            </p>
-            <button onclick="window.location.href='#coding'">More about coding!</button>
+            <hr>
         </div>
-        <img src="{% static 'images/image-2.jpg' %}" alt="image-1.jpg">
+        <div class="about-me">
+            <img src="{% static 'images/image-2.jpg' %}" alt="image-2.jpg">
+            <div>
+                <p>
+                    I am a high school student with a passion for web development. I have some experiences in mostly front-end but also back-end development. I am proficient in HTML, CSS, and JavaScript, as well as some Python. I am also familiar with React and Node.js. I am always eager to learn new technologies and improve my skills.
+                </p>
+                <button onclick="window.location.href='#coding'">Programming languages</button>
+            </div>
+        </div>
     </section>
 
     <section id="coding">
@@ -64,25 +75,25 @@
                 <progress value="50" max="100" id="react">50%</progress>
             </div>
 
-            <button onclick="window.location.href='#explore'">Explore more!</button>
+            <button onclick="window.location.href='#social-media'">Get in touch</button>
         </div>
         <img src="{% static 'images/image-3.jpg' %}" alt="image-3.jpg">
     </section>
 
-    <section id="explore">
-        <h1>More about me</h1>
+    <section id="social-media">
+        <h1>Connect with me</h1>
         <div class="socials">
             <div>
                 <i class='bx bxl-github' onclick="window.open('https://github.com/YianXie')"></i>
-                <p>My GitHub profile</p>
+                <p>GitHub</p>
             </div>
             <div>
-                <i class='bx bxl-github'></i>
-                <p>My GitHub profile</p>
+                <i class='bx bxs-envelope' onclick="window.open('mailto:yianxie52@gmail.com')"></i>
+                <p>Email</p>
             </div>
             <div>
-                <i class='bx bxl-github'></i>
-                <p>My GitHub profile</p>
+                <i class='bx bxs-phone-call' onclick="window.open('tel:+65-8525-9562')"></i>
+                <p>Call me</p>
             </div>
         </div>
         <button onclick="window.location.href='#intro'">Back to the top</button>
