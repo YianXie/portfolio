@@ -1,3 +1,42 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}Projects{% endblock %}
+{% block head %}
+    <link rel="stylesheet" href="{% static 'projects.css' %}">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="{% static 'projects.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+    <h1>Projects</h1>
+    <hr>
+    <div class="intro">
+        <h2>About these projects</h2>
+        <p>
+            These are some of the projects I have worked on. Most of them are personal projects, and a few of them are for school. I have worked on projects in a variety of languages and frameworks, including Python, JavaScript, and React.
+            
+            <br><br>
+            
+            *Datas are fetched from my <a href="https://github.com/YianXie">GitHub account</a>.
+        </p>
+    </div>
+
+    <div class="projects">
+        {% for repo in repos %}
+            {% if not repo.archived %}
+                <div class="repo" onclick="window.open('{{ repo.html_url }}')" language="{{ repo.languages_url }}">
+                    <div>
+                        <h3 class="name">{{ repo.name }}</h3>
+                        {% if not repo.description == null %}
+                            <p class="description">{{ repo.description }}</p>
+                        {% else %}
+                            <p class="description">No description yet</p>
+                        {% endif %}
+                    </div>
+                    <div id="language-chart"></div>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+{% endblock %}

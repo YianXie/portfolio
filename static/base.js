@@ -14,8 +14,20 @@ document.addEventListener("DOMContentLoaded", async function () {
             document.querySelector("#mobile-burger").classList.remove("active");
         }
     });
+
+    adjustContentSpacing();
+    window.addEventListener("resize", adjustContentSpacing);
 });
 
 function toggleMobileBurger() {
     document.querySelector("#mobile-burger").classList.toggle("active");
+}
+
+function adjustContentSpacing() {
+    const navBar = document.querySelector("nav");
+    const content = document.querySelector("main");
+
+    if (navBar && content) {
+        content.style.marginTop = navBar.offsetHeight + "px";
+    }
 }
