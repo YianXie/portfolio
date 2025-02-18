@@ -50,6 +50,7 @@ div.projects>.repo {
 
 div.projects>.repo>div {
     max-width: 50%;
+    word-break: break-all;
 }
 
 div.projects>.repo>#language-chart {
