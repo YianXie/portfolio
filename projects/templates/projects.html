@@ -18,14 +18,14 @@
             
             <br><br>
             
-            *Datas are fetched from my <a href="https://github.com/YianXie">GitHub account</a>.
+            *Datas are fetched from my <a href="https://github.com/YianXie">GitHub account</a>, and charts are made with <a href="https://developers.google.com/chart">Google charts API</a>.
         </p>
     </div>
 
     <div class="projects">
         {% for repo in repos %}
             {% if not repo.archived %}
-                <div class="repo" onclick="window.open('{{ repo.html_url }}')" language="{{ repo.languages_url }}">
+                <div class="repo" onclick="window.open('{{ repo.html_url }}')" language="{{ repo.languages_url }}" title="Click to go to GitHub">
                     <div>
                         <h3 class="name">{{ repo.name }}</h3>
                         {% if not repo.description == null %}
@@ -34,9 +34,11 @@
                             <p class="description">No description yet</p>
                         {% endif %}
                     </div>
-                    <div id="language-chart"></div>
+                    <div id="language-chart" onclick="window.open(' {{repo.languages_url}} ')" title="Programming languages"></div>
                 </div>
             {% endif %}
         {% endfor %}
     </div>
+
+    <small>Datas might take some time to load</small>
 {% endblock %}

@@ -1,6 +1,7 @@
 from django.urls import path
-from . import views
+from .views import *
 
 urlpatterns = [
-    path('', views.projects, name='projects'),
+    path("", projects, name="projects"),
+    path("api/github-repo-langs/", get_github_repo_langs, name="get_github_repo_langs"),
 ]
