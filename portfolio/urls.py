@@ -25,4 +25,5 @@ urlpatterns = [
     path("projects/", include("projects.urls")),
     path("contributions/", include("contributions.urls")),
     path("contact/", include("contacts.urls")),
+    path("switch-theme/", include("theme.urls")),
 ]

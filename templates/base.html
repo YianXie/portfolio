@@ -12,6 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="{% static 'base.css' %}">
+    <link rel="icon" type="image/x-icon" href="{% static "favicon.ico" %}">
     <script src="{% static 'base.js' %}"></script>
     <title>Ian's Portfolio - {% block title %}{% endblock %}</title>
     {% block head %}
@@ -25,7 +26,14 @@
             <a href="{% url 'projects' %}" class="hide-mobile">Projects</a>
             <a href="{% url 'contributions' %}" class="hide-mobile">Contributions</a>
             <a href="{% url 'contacts' %}" class="hide-mobile">Contacts</a>
-            <i class='bx bxl-github hide-mobile' title="GitHub repositeries" onclick="window.open('https://github.com/YianXie/portfolio')"></i>
+            {% comment %} <i class='bx bxl-github hide-mobile' title="GitHub repositeries" onclick="window.open('https://github.com/YianXie/portfolio')"></i>       {% endcomment %}
+            <div class="switch hide-mobile" title="Switch between dark/light mode">
+                <div>
+                    <input type="checkbox" id="theme" checked>
+                    <span></span>
+                </div>
+                {% comment %} <small>Switch theme</small> {% endcomment %}
+            </div>
             <i class='bx bx-list-ul show-mobile' id="mobile-burger-menu" onclick="toggleMobileBurger()"></i>
         </nav>
     </header>
@@ -37,6 +45,7 @@
             <li><a href="{% url 'contributions' %}">Contributions</a></li>
             <li><a href="{% url 'contacts' %}">Contacts</a></li>
             <li><a href="https://github.com/YianXie/portfolio">GitHub</a></li>
+            <li><a>Dark/light mode</a></li>
         </ul>
     </div>
 
@@ -46,7 +55,7 @@
     </main>
 
     <footer>
-        <p>Created by Ian Xie | &copy; All rights reserved.</p>
+        <p>Created by Ian Xie | &copy; All rights reserved | <a href="https://github.com/YianXie/portfolio">GitHub repositery</a></p>
     </footer>
 </body>
 
