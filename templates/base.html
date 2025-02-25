@@ -26,13 +26,9 @@
             <a href="{% url 'projects' %}" class="hide-mobile">Projects</a>
             <a href="{% url 'contributions' %}" class="hide-mobile">Contributions</a>
             <a href="{% url 'contacts' %}" class="hide-mobile">Contacts</a>
-            {% comment %} <i class='bx bxl-github hide-mobile' title="GitHub repositeries" onclick="window.open('https://github.com/YianXie/portfolio')"></i>       {% endcomment %}
             <div class="switch hide-mobile" title="Switch between dark/light mode">
-                <div>
-                    <input type="checkbox" id="theme" checked>
-                    <span></span>
-                </div>
-                {% comment %} <small>Switch theme</small> {% endcomment %}
+                <input type="checkbox" id="theme" title="Switch between dark/light mode" checked>
+                <span></span>
             </div>
             <i class='bx bx-list-ul show-mobile' id="mobile-burger-menu" onclick="toggleMobileBurger()"></i>
         </nav>
@@ -44,8 +40,8 @@
             <li><a href="{% url 'projects' %}">Projects</a></li>
             <li><a href="{% url 'contributions' %}">Contributions</a></li>
             <li><a href="{% url 'contacts' %}">Contacts</a></li>
-            <li><a href="https://github.com/YianXie/portfolio">GitHub</a></li>
             <li><a>Dark/light mode</a></li>
+            <li><a href="https://github.com/YianXie/portfolio">GitHub repositery</a></li>
         </ul>
     </div>
 

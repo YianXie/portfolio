@@ -1,3 +1,73 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}Contributions{% endblock %}
+{% block head %}
+    <link rel="stylesheet" href="{% static 'contributions.css' %}">
+    <script src="{% static 'contributions.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+    <div class="title">
+        <h1>Contributions</h1>
+        <hr>
+    </div>
+    <div class="cards">
+        <div class="card">
+            <div class="front">
+                <h3>Competitive Coding Club</h3>
+                <img src="{% static "images/ccc.png" %}" alt="ccc.png" draggable="false">
+            </div>
+            <div class="back">
+                <h3>Competitive Coding Club</h3>
+                <p>
+                    I participated in the Competitive Coding Club at my school, which focuses on algorithms and data structures. I learned a lot about competitive programming and participated in various contests, such as USACO and NOI. 
+
+                    <br><br>
+
+                    In addition, I also learned a lot about Java, which I use frequently in contests. It for sure will help me in the future, as I plan to major in computer science.
+                </p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="front">
+                <h3>USACO</h3>
+                <img src="{% static "images/usaco.webp" %}" alt="usaco.webp" draggable="false">
+            </div>
+            <div class="back">
+                <h3>USACO</h3>
+                <p></p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="front">
+                <h3>NOI</h3>
+                <img src="{% static "images/noi.jpg" %}" alt="noi.jpg" draggable="false">
+            </div>
+            <div class="back">
+                <h3>NOI</h3>
+                <p></p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="front">
+                <h3>Game Jam 2024</h3>
+                <img src="{% static "images/game-jam.webp" %}" alt="game-jam.webp" draggable="false">
+            </div>
+            <div class="back">
+                <h3>Game Jam 2024</h3>
+                <p></p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="front">
+                <h3>Hackathon 2025</h3>
+                <img src="{% static "images/hackathon.webp" %}" alt="hackathon.webp" draggable="false">
+            </div>
+            <div class="back">
+                <h3>Hackathon 2025</h3>
+                <p></p>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -113,6 +113,7 @@ header>nav>a::before {
 }
 
 .switch {
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -121,11 +122,27 @@ header>nav>a::before {
     gap: 5px;
 }
 
-.switch>small {
-    font-size: 12px;
+.switch[title]::after {
+    content: attr(title);
+    position: absolute;
+    left: 0;
+    bottom: -5px; /* 5px margin to the top */
+    transform-origin: center top;
+    transform: scale(0.1) translate(-50%, 100%);
+    width: 150px;
+    background-color: rgb(50, 50, 50);
+    padding: 5px;
+    border-radius: 10px;
+    opacity: 0;
+    transition: 0.3s ease-out;
 }
 
-.switch>div {
+.switch[title]:hover::after {
+    transform: scale(1) translate(-50%, 100%);
+    opacity: 1;
+}
+
+.switch {
     position: relative;
     display: inline-block;
     background-color: rgb(50, 50, 50);
@@ -140,7 +157,7 @@ header>nav>a::before {
     }
 }
 
-.switch>div>input {
+.switch>input {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -152,7 +169,7 @@ header>nav>a::before {
     cursor: pointer;
 }
 
-.switch>div>span {
+.switch>span {
     display: inline-block;
     position: absolute;
     height: 100%;
@@ -165,7 +182,7 @@ header>nav>a::before {
     transition: all 0.3s;
 }
 
-.switch>div>input:checked + span {
+.switch>input:checked + span {
     background-color: lightskyblue;
     transform: translate(0, -50%);
 }
