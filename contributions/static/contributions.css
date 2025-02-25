@@ -51,7 +51,7 @@ body {
     height: 500px;
     width: 300px;
     min-width: 300px;
-    background-color: lightyellow;
+    background-color: rgb(230, 230, 191);
     color: black;
     border: 2px solid rgba(255, 255, 255, 0.8);
     border-radius: 10px;
@@ -115,7 +115,6 @@ body {
 }
 
 .cards .back>p {
-    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -124,6 +123,6 @@ body {
     line-height: 1.5;
     padding: 5px 15px;
     text-align: left;
-    word-break: break-all;
+
     overflow: auto;
 }
