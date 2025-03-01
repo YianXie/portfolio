@@ -4,7 +4,7 @@
 {% load static %}
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="{{ theme }}">
 
 <head>
     <meta charset="UTF-8">
@@ -26,10 +26,10 @@
             <a href="{% url 'projects' %}" class="hide-mobile">Projects</a>
             <a href="{% url 'contributions' %}" class="hide-mobile">Contributions</a>
             <a href="{% url 'contacts' %}" class="hide-mobile">Contacts</a>
-            <div class="switch hide-mobile" title="Switch between dark/light mode">
-                <input type="checkbox" id="theme" title="Switch between dark/light mode" checked>
+            {% comment %} <div class="switch hide-mobile" title="Switch between dark/light mode">
+                <input type="checkbox" id="theme" title="Switch between dark/light mode" onclick="window.location.href='{% url 'switch_theme' %}'" checked>
                 <span></span>
-            </div>
+            </div> {% endcomment %}
             <i class='bx bx-list-ul show-mobile' id="mobile-burger-menu" onclick="toggleMobileBurger()"></i>
         </nav>
     </header>

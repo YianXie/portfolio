@@ -21,10 +21,18 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 env = environ.Env()
 environ.Env.read_env(os.path.join(BASE_DIR, ".env"))
 
-GITHUB_TOKEN = env("GITHUB_TOKEN", default=None)
+GITHUB_TOKEN = env("GITHUB_TOKEN")
 
 if not GITHUB_TOKEN:
     raise ValueError("GITHUB_TOKEN environment variable not set!")
+
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = env("EMAIL_HOST_USER")
+EMAIL_HOST_PASSWORD = env("EMAIL_HOST_PASSWORD")
+DEFAULT_FORM_EMAIL = EMAIL_HOST_USER
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
@@ -51,6 +59,7 @@ INSTALLED_APPS = [
     "projects",
     "contributions",
     "contacts",
+    "theme",
 ]
 
 MIDDLEWARE = [

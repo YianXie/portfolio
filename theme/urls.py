@@ -1,6 +1,6 @@
 from django.urls import path
-from .views import *
+from . import views
 
 urlpatterns = [
-    path("", switch_theme, name="switch_theme")
+    path('', views.switch_theme, name='switch_theme'),
 ]
