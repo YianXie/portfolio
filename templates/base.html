@@ -4,55 +4,67 @@
 {% load static %}
 
 <!DOCTYPE html>
-<html lang="en" class="{{ theme }}">
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="{% static 'base.css' %}" />
+        <link rel="icon" type="image/x-icon" href="{% static "favicon.ico" %}">
+        <script src="{% static 'base.js' %}"></script>
+        <title>Ian's Portfolio - {% block title %}{% endblock %}</title>
+        {% block head %} {% endblock %}
+    </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="{% static 'base.css' %}">
-    <link rel="icon" type="image/x-icon" href="{% static "favicon.ico" %}">
-    <script src="{% static 'base.js' %}"></script>
-    <title>Ian's Portfolio - {% block title %}{% endblock %}</title>
-    {% block head %}
-    {% endblock %}
-</head>
+    <body>
+        <header>
+            <nav>
+                <a href="{% url 'home' %}" title="Home">Ian's Portfolio</a>
+                <a href="{% url 'projects' %}" class="hide-mobile">Projects</a>
+                <a href="{% url 'contributions' %}" class="hide-mobile"
+                    >Contributions</a
+                >
+                <a href="{% url 'contacts' %}" class="hide-mobile">Contacts</a>
+                <i
+                    class="bx bx-list-ul show-mobile"
+                    id="mobile-burger-menu"
+                    onclick="toggleMobileBurger()"
+                ></i>
+            </nav>
+        </header>
 
-<body>
-    <header>
-        <nav>
-            <a href="{% url 'home' %}" title="Home">Ian's Portfolio</a>
-            <a href="{% url 'projects' %}" class="hide-mobile">Projects</a>
-            <a href="{% url 'contributions' %}" class="hide-mobile">Contributions</a>
-            <a href="{% url 'contacts' %}" class="hide-mobile">Contacts</a>
-            {% comment %} <div class="switch hide-mobile" title="Switch between dark/light mode">
-                <input type="checkbox" id="theme" title="Switch between dark/light mode" onclick="window.location.href='{% url 'switch_theme' %}'" checked>
-                <span></span>
-            </div> {% endcomment %}
-            <i class='bx bx-list-ul show-mobile' id="mobile-burger-menu" onclick="toggleMobileBurger()"></i>
-        </nav>
-    </header>
+        <div id="mobile-burger">
+            <i
+                class="bx bx-x"
+                id="close-mobile-burger"
+                onclick="toggleMobileBurger()"
+            ></i>
+            <ul>
+                <li><a href="{% url 'projects' %}">Projects</a></li>
+                <li><a href="{% url 'contributions' %}">Contributions</a></li>
+                <li><a href="{% url 'contacts' %}">Contacts</a></li>
+                <li><a>Dark/light mode</a></li>
+                <li>
+                    <a href="https://github.com/YianXie/portfolio"
+                        >GitHub repositery</a
+                    >
+                </li>
+            </ul>
+        </div>
 
-    <div id="mobile-burger">
-        <i class='bx bx-x' id="close-mobile-burger" onclick="toggleMobileBurger()"></i>
-        <ul>
-            <li><a href="{% url 'projects' %}">Projects</a></li>
-            <li><a href="{% url 'contributions' %}">Contributions</a></li>
-            <li><a href="{% url 'contacts' %}">Contacts</a></li>
-            <li><a>Dark/light mode</a></li>
-            <li><a href="https://github.com/YianXie/portfolio">GitHub repositery</a></li>
-        </ul>
-    </div>
+        <main>{% block content %} {% endblock %}</main>
 
-    <main>
-        {% block content %}
-        {% endblock %}
-    </main>
-
-    <footer>
-        <p>Created by Ian Xie | &copy; All rights reserved | <a href="https://github.com/YianXie/portfolio">GitHub repositery</a></p>
-    </footer>
-</body>
-
+        <footer>
+            <p>
+                Created by Ian Xie | &copy; All rights reserved |
+                <a href="https://github.com/YianXie/portfolio"
+                    >GitHub repositery</a
+                >
+            </p>
+        </footer>
+    </body>
 </html>

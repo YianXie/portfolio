@@ -38,12 +38,17 @@ DEFAULT_FORM_EMAIL = EMAIL_HOST_USER
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-%5hd8wxuea6$n3(dpba&zcxt0%i^tosr8bz7lp(3&8gvukogtb"
+SECRET_KEY = env("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["personal-portfolio-rxg7.onrender.com", "127.0.0.1", "localhost"]
+ALLOWED_HOSTS = [
+    "personal-portfolio-rxg7.onrender.com",
+    "yianxie.me",
+    "127.0.0.1",
+    "localhost",
+]
 
 
 # Application definition
@@ -59,7 +64,6 @@ INSTALLED_APPS = [
     "projects",
     "contributions",
     "contacts",
-    "theme",
 ]
 
 MIDDLEWARE = [
@@ -85,7 +89,6 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
-                "theme.context_processors.theme_mode",
             ],
         },
     },
