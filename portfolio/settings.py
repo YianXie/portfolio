@@ -11,20 +11,46 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
-import environ
+from environ import Env
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # The .env file
-env = environ.Env()
-environ.Env.read_env(os.path.join(BASE_DIR, ".env"))
+env = Env()
+Env.read_env(BASE_DIR / ".env")
 
-GITHUB_TOKEN = env("GITHUB_TOKEN")
+REPOS_TOKEN = env("REPOS_TOKEN", default=None)
 
-if not GITHUB_TOKEN:
-    raise ValueError("GITHUB_TOKEN environment variable not set!")
+# Quick-start development settings - unsuitable for production
+# See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
+
+# SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY = env("SECRET_KEY")
+
+ENVIRONMENT = env("ENVIRONMENT", default="production")
+
+# SECURITY WARNING: don't run with debug turned on in production!
+if ENVIRONMENT == "development":
+    DEBUG = True
+else:
+    DEBUG = False
+
+ALLOWED_HOSTS = [
+    "127.0.0.1",
+    "localhost",
+    "personal-portfolio-rxg7.onrender.com",
+    "www.yianxie.me",
+]
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://personal-portfolio-rxg7.onrender.com",
+    "https://yianxie.me",
+]
+
+
+# Email settings
 
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST = "smtp.gmail.com"
@@ -33,22 +59,6 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = env("EMAIL_HOST_USER")
 EMAIL_HOST_PASSWORD = env("EMAIL_HOST_PASSWORD")
 DEFAULT_FORM_EMAIL = EMAIL_HOST_USER
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = env("SECRET_KEY")
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = [
-    "personal-portfolio-rxg7.onrender.com",
-    "yianxie.me",
-    "127.0.0.1",
-    "localhost",
-]
 
 
 # Application definition
@@ -132,7 +142,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = "en-us"
 
-TIME_ZONE = "UTC"
+TIME_ZONE = "Asia/Singapore"
 
 USE_I18N = True
 
@@ -143,9 +153,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = "/static/"
-
 STATICFILES_DIRS = [BASE_DIR / "static"]
-
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
 # Default primary key field type

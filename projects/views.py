@@ -6,8 +6,9 @@ from django.views.decorators.csrf import csrf_exempt
 import requests
 import json
 
-GITHUB_TOKEN = settings.GITHUB_TOKEN
-HEADERS = {"Authorization": f"token {GITHUB_TOKEN}"}
+REPOS_TOKEN = settings.REPOS_TOKEN
+HEADERS = {"Authorization": f"token {REPOS_TOKEN}"}
+
 
 # Create your views here.
 def projects(request):
@@ -25,7 +26,7 @@ def get_github_repos(username):
     response = requests.get(url, headers=HEADERS)
 
     if response.status_code == 200:
-        print('valid')  
+        print("valid")
         return response.json()
     else:
         print(f"invalid status code of {response.status_code}")
@@ -35,8 +36,10 @@ def get_github_repos(username):
 @csrf_exempt
 def get_github_repo_langs(request):
     if request.method != "POST":
-        return JsonResponse({"error": f"Only POST method allowed {request.method}"}, status=405)
-    
+        return JsonResponse(
+            {"error": f"Only POST method allowed {request.method}"}, status=405
+        )
+
     try:
         data = json.loads(request.body)
         url = data.get("url")
@@ -46,9 +49,7 @@ def get_github_repo_langs(request):
         if response.status_code == 200:
             return JsonResponse(response.json(), safe=False)
         else:
-            return JsonResponse(
-                {"error": "Failed to fetch repositories"}, status=400
-            )
+            return JsonResponse({"error": "Failed to fetch repositories"}, status=400)
 
     except json.JSONDecodeError:
         return JsonResponse({"error": "Invalid JSON data"}, status=400)
