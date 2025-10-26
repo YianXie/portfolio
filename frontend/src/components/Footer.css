@@ -1,0 +1,20 @@
+footer {
+  position: relative;
+  background-color: black;
+  color: white;
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+  margin-top: auto;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+footer a {
+  color: white;
+  text-decoration: underline;
+  transition: opacity 0.3s;
+}
+
+footer a:hover {
+  opacity: 0.8;
+}
