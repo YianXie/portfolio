@@ -1,0 +1,232 @@
+section {
+  padding: 20px;
+}
+
+section > div:has(hr) {
+  position: relative;
+  display: inline-block;
+  width: max-content;
+}
+
+section > .title {
+  text-align: center;
+  margin-top: 80px;
+}
+
+section h1 {
+  position: relative;
+  font-size: 2.2rem;
+  text-align: center;
+}
+
+section > .title p {
+  display: inline-block;
+  position: relative;
+  color: orangered;
+}
+
+section > .title p::before,
+section > .title p::after {
+  content: "";
+  position: relative;
+  display: inline-block;
+  height: 1.5px;
+  width: 40px;
+  background-color: orangered;
+  top: -0.25em;
+}
+
+section > .title p::before {
+  margin-right: 5px;
+}
+
+section > .title p::after {
+  margin-left: 5px;
+}
+
+section.contact {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: floralwhite;
+  color: black;
+}
+
+section.contact img {
+  width: 300px;
+  height: 300px;
+  user-select: none;
+}
+
+section .info {
+  position: relative;
+  display: flex;
+  width: 100%;
+  margin: 20px 0;
+  justify-content: space-around;
+  align-items: center;
+}
+
+section .items {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  gap: 20px;
+}
+
+section .items a {
+  color: blue;
+}
+
+section .items a:active {
+  color: darkblue;
+}
+
+section .items {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 1.2rem;
+  gap: 15px;
+}
+
+section .item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+section .item > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+section .item > i {
+  font-size: 2rem;
+}
+
+section.form {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 50px;
+}
+
+section.form form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  max-width: 600px;
+  margin: 20px 0 5px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: white;
+}
+
+section.form form input,
+section.form form textarea {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  font-size: 0.9rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+section.form form input:focus,
+section.form form textarea:focus {
+  outline: 2px solid lightskyblue;
+}
+
+section.form form textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+section.form form input[type="submit"] {
+  background-color: lightgreen;
+  color: black;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+section.form form input[type="submit"]:hover {
+  opacity: 0.8;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+section.form form input[type="submit"]:active {
+  transform: translateY(2px);
+}
+
+section.form form input[type="submit"]:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.success-message {
+  background-color: #4caf50;
+  color: white;
+  padding: 15px;
+  margin: 10px 0;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.error-message {
+  background-color: #f44336;
+  color: white;
+  padding: 15px;
+  margin: 10px 0;
+  border-radius: 4px;
+  text-align: center;
+}
+
+@media only screen and (max-width: 768px) {
+  section.contact img {
+    display: none;
+  }
+
+  section .info {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  section .details {
+    gap: 20px;
+  }
+
+  section .items {
+    font-size: 1rem;
+  }
+
+  section .item {
+    gap: 10px;
+  }
+
+  section .item > i {
+    font-size: 1.5rem;
+  }
+}
