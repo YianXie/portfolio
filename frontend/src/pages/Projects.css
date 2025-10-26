@@ -1,103 +1,103 @@
 h1 {
-  width: 100%;
-  text-align: center;
-  font-size: 2rem;
-  padding: 10px 0;
-  margin-top: 80px;
+    width: 100%;
+    text-align: center;
+    font-size: 2rem;
+    padding: 10px 0;
+    margin-top: 80px;
 }
 
 hr {
-  border: 1px solid white;
-  margin: 10px auto;
-  width: 80%;
+    border: 1px solid white;
+    margin: 10px auto;
+    width: 80%;
 }
 
 .intro {
-  padding: 20px;
-  color: white;
+    padding: 20px;
+    color: white;
 }
 
 .intro > h2 {
-  font-size: 1.5rem;
-  margin-bottom: 5px;
+    font-size: 1.5rem;
+    margin-bottom: 5px;
 }
 
 .intro a {
-  color: white;
-  text-decoration: underline;
-  transition: opacity 0.2s;
+    color: white;
+    text-decoration: underline;
+    transition: opacity 0.2s;
 }
 
 .intro a:hover {
-  opacity: 0.8;
+    opacity: 0.8;
 }
 
 div.projects {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  gap: 30px;
-  justify-content: center;
-  padding: 20px 30px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 30px;
+    justify-content: center;
+    padding: 20px 30px;
 }
 
 div.projects > .repo {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  background: rgb(52, 52, 52);
-  padding: 15px;
-  border-radius: 5px;
-  cursor: pointer;
-  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
-  transition: box-shadow 0.3s;
-  min-height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: rgb(52, 52, 52);
+    padding: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.3s;
+    min-height: 150px;
 }
 
 div.projects > .repo:hover {
-  box-shadow: 0 0 5px 0 rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 5px 0 rgba(255, 255, 255, 0.5);
 }
 
 div.projects > .repo > div {
-  margin-bottom: 10px;
+    margin-bottom: 10px;
 }
 
 div.projects > .repo h3.name {
-  font-size: 1.3rem;
-  margin-bottom: 10px;
-  color: #4a9eff;
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    color: #4a9eff;
 }
 
 div.projects > .repo p.description {
-  font-size: 1rem;
-  color: #ddd;
-  line-height: 1.5;
+    font-size: 1rem;
+    color: #ddd;
+    line-height: 1.5;
 }
 
 .language-info {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: auto;
 }
 
 .language-badge {
-  display: inline-block;
-  background: rgba(74, 158, 255, 0.2);
-  color: #4a9eff;
-  padding: 4px 10px;
-  border-radius: 12px;
-  font-size: 0.85rem;
-  border: 1px solid #4a9eff;
+    display: inline-block;
+    background: rgba(74, 158, 255, 0.2);
+    color: #4a9eff;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 0.85rem;
+    border: 1px solid #4a9eff;
 }
 
 .loading {
-  text-align: center;
-  padding: 50px;
-  font-size: 1.5rem;
+    text-align: center;
+    padding: 50px;
+    font-size: 1.5rem;
 }
 
 @media only screen and (max-width: 768px) {
-  div.projects {
-    grid-template-columns: 1fr;
-  }
+    div.projects {
+        grid-template-columns: 1fr;
+    }
 }
