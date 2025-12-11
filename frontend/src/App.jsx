@@ -4,8 +4,8 @@ import "./App.css";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Contact from "./pages/Contact";
-import Contributions from "./pages/Contributions";
 import Home from "./pages/Home";
+import NotFound from "./pages/NotFound";
 import Projects from "./pages/Projects";
 
 function App() {
@@ -17,11 +17,8 @@ function App() {
                     <Routes>
                         <Route path="/" element={<Home />} />
                         <Route path="/projects" element={<Projects />} />
-                        <Route
-                            path="/contributions"
-                            element={<Contributions />}
-                        />
                         <Route path="/contact" element={<Contact />} />
+                        <Route path="*" element={<NotFound />} />
                     </Routes>
                 </main>
                 <Footer />

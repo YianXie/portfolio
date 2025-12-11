@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-import "./Header.css";
+import "../styles/Header.css";
 
 function Header() {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -44,12 +44,18 @@ function Header() {
                     <Link to="/projects" className="hide-mobile">
                         Projects
                     </Link>
-                    <Link to="/contributions" className="hide-mobile">
-                        Contributions
-                    </Link>
                     <Link to="/contact" className="hide-mobile">
                         Contacts
                     </Link>
+                    <i
+                        className="bxl bx-github hide-mobile"
+                        onClick={() => {
+                            window.open(
+                                "https://github.com/YianXie/portfolio",
+                                "_blank"
+                            );
+                        }}
+                    ></i>
                     <i
                         className="bx bx-list-ul show-mobile"
                         id="mobile-burger-menu"
@@ -71,11 +77,6 @@ function Header() {
                     <li>
                         <Link to="/projects" onClick={toggleMobileMenu}>
                             Projects
-                        </Link>
-                    </li>
-                    <li>
-                        <Link to="/contributions" onClick={toggleMobileMenu}>
-                            Contributions
                         </Link>
                     </li>
                     <li>

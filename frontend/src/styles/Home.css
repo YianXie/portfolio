@@ -33,6 +33,7 @@ section#intro h1 {
         lightgreen,
         lightblue
     );
+    text-align: left;
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;

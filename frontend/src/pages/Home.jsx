@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-import "./Home.css";
+import "../styles/Home.css";
 
 function Home() {
     const [roleText, setRoleText] = useState("");
@@ -54,6 +54,7 @@ function Home() {
         return () => {
             if (timeoutId) clearTimeout(timeoutId);
         };
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     const scrollToAbout = () => {
