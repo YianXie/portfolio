@@ -37,4 +37,4 @@ jobs:
 
             - name: Run tests
               working-directory: ./backend
-              run: uv run python backend/manage.py test
+              run: uv run python manage.py test
