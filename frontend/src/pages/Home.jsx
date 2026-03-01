@@ -115,6 +115,57 @@ function Home() {
                 </div>
             </section>
 
+            <section id="awards-experience">
+                <div className="awards-experience-inner">
+                    <div>
+                        <h1>Awards & Experience</h1>
+                        <hr />
+                    </div>
+                    <div className="awards-experience-grid">
+                        <article className="experience-card" data-type="award">
+                            <span className="card-badge">Award</span>
+                            <div className="card-icon">
+                                <i className="bx bx-trophy"></i>
+                            </div>
+                            <h3>2nd Place — Hackathon</h3>
+                            <p className="card-meta">Hackathon competition</p>
+                            <p className="card-desc">
+                                Placed 2nd in a hackathon, building a full-stack
+                                project with my team.
+                            </p>
+                        </article>
+                        <article
+                            className="experience-card"
+                            data-type="experience"
+                        >
+                            <span className="card-badge">Experience</span>
+                            <div className="card-icon">
+                                <i className="bx bx-briefcase"></i>
+                            </div>
+                            <h3>Internship Program</h3>
+                            <p className="card-meta">Adobe</p>
+                            <p className="card-desc">
+                                Participated in Adobe&apos;s internship program,
+                                gaining industry experience in design and
+                                development.
+                            </p>
+                        </article>
+                        <article className="experience-card" data-type="award">
+                            <span className="card-badge">Award</span>
+                            <div className="card-icon">
+                                <i className="bx bx-medal"></i>
+                            </div>
+                            <h3>USACO Silver</h3>
+                            <p className="card-meta">USA Computing Olympiad</p>
+                            <p className="card-desc">
+                                Got promoted to the silver division in the 2026
+                                USACO third contest.
+                            </p>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
             <section id="coding">
                 <div>
                     <h1>Programming languages</h1>
