@@ -28,13 +28,13 @@ else:
 ALLOWED_HOSTS = [
     "127.0.0.1",
     "localhost",
-    "personal-portfolio-rxg7.onrender.com",
     "www.yianxie.me",
+    "api.yianxie.me",
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    "https://personal-portfolio-rxg7.onrender.com",
-    "https://yianxie.me",
+    "https://www.yianxie.me",
+    "https://api.yianxie.me",
 ]
 
 
@@ -152,8 +152,8 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",  # Vite dev server
     "http://127.0.0.1:5173",
-    "https://personal-portfolio-rxg7.onrender.com",
-    "https://yianxie.me",
+    "https://www.yianxie.me",
+    "https://api.yianxie.me",
 ]
 
 CORS_ALLOW_CREDENTIALS = True
