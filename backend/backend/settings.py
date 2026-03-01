@@ -1,7 +1,6 @@
-import os
 from pathlib import Path
 
-from environ import Env
+from environ import Env  # type: ignore
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -153,6 +152,8 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",  # Vite dev server
     "http://127.0.0.1:5173",
+    "https://personal-portfolio-rxg7.onrender.com",
+    "https://yianxie.me",
 ]
 
 CORS_ALLOW_CREDENTIALS = True
