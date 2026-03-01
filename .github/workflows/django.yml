@@ -32,7 +32,9 @@ jobs:
                   uv sync --dev
 
             - name: Run migrations
+              working-directory: ./backend
               run: uv run python manage.py makemigrations && uv run python manage.py migrate
 
             - name: Run tests
+              working-directory: ./backend
               run: uv run python backend/manage.py test
