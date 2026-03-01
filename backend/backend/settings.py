@@ -1,6 +1,7 @@
-from pathlib import Path
-from environ import Env
 import os
+from pathlib import Path
+
+from environ import Env
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -59,8 +60,11 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "rest_framework",
+    "rest_framework.authtoken",
     "corsheaders",
     "contact",
+    "blog",
+    "authentication",
 ]
 
 MIDDLEWARE = [

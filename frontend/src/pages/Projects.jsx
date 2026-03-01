@@ -61,14 +61,10 @@ function Projects() {
             <div className="intro">
                 <h2>About these projects</h2>
                 <p>
-                    These are some of the projects I have worked on. Most of
-                    them are personal projects, and a few of them are for
-                    school. I have worked on projects in a variety of languages
-                    and frameworks, including Python, JavaScript, and React.
+                    These are some of the projects I have worked on, including
+                    websites, games, and AI engines.
                     <br />
-                    <br />
-                    *Datas are fetched from my{" "}
-                    <a href="https://github.com/YianXie">GitHub account</a>.
+                    All of them can be found on my GitHub account.
                 </p>
             </div>
 

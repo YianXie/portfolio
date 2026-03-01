@@ -1,20 +1,41 @@
 footer {
     position: relative;
-    background-color: black;
-    color: white;
+    background: var(--bg-secondary);
+    color: var(--text-muted);
     width: 100%;
     text-align: center;
-    padding: 10px;
+    padding: 20px;
     margin-top: auto;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    font-size: 0.9rem;
+}
+
+footer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--border-hover),
+        transparent
+    );
+}
+
+footer p {
+    line-height: 1.6;
 }
 
 footer a {
-    color: white;
-    text-decoration: underline;
-    transition: opacity 0.3s;
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: var(--transition);
+    border-bottom: 1px solid transparent;
 }
 
 footer a:hover {
-    opacity: 0.8;
+    color: var(--text-primary);
+    border-bottom-color: var(--text-secondary);
 }

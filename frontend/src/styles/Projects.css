@@ -1,76 +1,94 @@
 h1 {
     width: 100%;
     text-align: center;
-    font-size: 2rem;
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    font-weight: 800;
+    letter-spacing: -0.5px;
     padding: 10px 0;
     margin-top: 80px;
 }
 
 hr {
-    border: 1px solid white;
+    border: none;
+    border-top: 1px solid var(--border);
     margin: 10px auto;
     width: 80%;
 }
 
 .intro {
-    padding: 20px;
-    color: white;
+    padding: 20px 30px;
+    color: var(--text-secondary);
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 .intro > h2 {
-    font-size: 1.5rem;
-    margin-bottom: 5px;
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--text-primary);
 }
 
 .intro a {
-    color: white;
-    text-decoration: underline;
-    transition: opacity 0.2s;
+    color: var(--blue);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: var(--transition);
 }
 
 .intro a:hover {
-    opacity: 0.8;
+    border-bottom-color: var(--blue);
+}
+
+.intro p {
+    line-height: 1.7;
 }
 
 div.projects {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 20px;
     justify-content: center;
     padding: 20px 30px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 div.projects > .repo {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background: rgb(52, 52, 52);
-    padding: 15px;
-    border-radius: 5px;
+    background: var(--bg-card);
+    padding: 20px;
+    border-radius: var(--radius);
     cursor: pointer;
-    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
-    transition: box-shadow 0.3s;
+    border: 1px solid var(--border);
+    transition: var(--transition);
     min-height: 150px;
 }
 
 div.projects > .repo:hover {
-    box-shadow: 0 0 5px 0 rgba(255, 255, 255, 0.5);
+    background: var(--bg-card-hover);
+    border-color: var(--border-hover);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
 }
 
 div.projects > .repo > div {
-    margin-bottom: 10px;
+    margin-bottom: 12px;
 }
 
 div.projects > .repo h3.name {
-    font-size: 1.3rem;
-    margin-bottom: 10px;
-    color: #4a9eff;
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--blue);
 }
 
 div.projects > .repo p.description {
-    font-size: 1rem;
-    color: #ddd;
-    line-height: 1.5;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
 }
 
 .language-info {
@@ -82,22 +100,25 @@ div.projects > .repo p.description {
 
 .language-badge {
     display: inline-block;
-    background: rgba(74, 158, 255, 0.2);
-    color: #4a9eff;
-    padding: 4px 10px;
-    border-radius: 12px;
-    font-size: 0.85rem;
-    border: 1px solid #4a9eff;
+    background: var(--blue-soft);
+    color: var(--blue);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    border: 1px solid rgba(74, 158, 255, 0.2);
 }
 
 .loading {
     text-align: center;
     padding: 50px;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
+    color: var(--text-secondary);
 }
 
 @media only screen and (max-width: 768px) {
     div.projects {
         grid-template-columns: 1fr;
+        padding: 20px 16px;
     }
 }

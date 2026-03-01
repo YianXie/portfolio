@@ -1,101 +1,94 @@
-section {
-    padding: 20px;
-}
-
-section > div:has(hr) {
-    position: relative;
-    display: inline-block;
-    width: max-content;
-}
-
-section > .title {
-    text-align: center;
-    margin-top: 80px;
-}
-
-section h1 {
-    position: relative;
-    font-size: 2.2rem;
-    text-align: center;
-}
-
-section > .title p {
-    display: inline-block;
-    position: relative;
-    color: orangered;
-}
-
-section > .title p::before,
-section > .title p::after {
-    content: "";
-    position: relative;
-    display: inline-block;
-    height: 1.5px;
-    width: 40px;
-    background-color: orangered;
-    top: -0.25em;
-}
-
-section > .title p::before {
-    margin-right: 5px;
-}
-
-section > .title p::after {
-    margin-left: 5px;
-}
-
 section.contact {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: floralwhite;
-    color: black;
+    background: var(--text-primary);
+    color: var(--bg-primary);
+    padding: 60px 20px;
+}
+
+section.contact > .title {
+    text-align: center;
+    margin-top: 60px;
+    margin-bottom: 20px;
+}
+
+section.contact h1 {
+    position: relative;
+    font-size: clamp(1.8rem, 3vw, 2.2rem);
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    text-align: center;
+    color: var(--bg-primary);
+}
+
+section.contact > .title p {
+    display: inline-block;
+    position: relative;
+    color: var(--accent);
+    font-weight: 500;
+}
+
+section.contact > .title p::before,
+section.contact > .title p::after {
+    content: "";
+    position: relative;
+    display: inline-block;
+    height: 1.5px;
+    width: 40px;
+    background-color: var(--accent);
+    top: -0.25em;
+}
+
+section.contact > .title p::before {
+    margin-right: 8px;
+}
+
+section.contact > .title p::after {
+    margin-left: 8px;
 }
 
 section.contact img {
-    width: 300px;
-    height: 300px;
+    width: 250px;
+    height: 250px;
     user-select: none;
+    opacity: 0.9;
 }
 
 section .info {
     position: relative;
     display: flex;
     width: 100%;
+    max-width: 800px;
     margin: 20px 0;
     justify-content: space-around;
     align-items: center;
 }
 
 section .items {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    gap: 20px;
-}
-
-section .items a {
-    color: blue;
-}
-
-section .items a:active {
-    color: darkblue;
-}
-
-section .items {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    font-size: 1.2rem;
-    gap: 15px;
+    font-size: 1.1rem;
+    gap: 18px;
+}
+
+section .items a {
+    color: var(--blue);
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+section .items a:hover {
+    opacity: 0.7;
 }
 
 section .item {
     display: flex;
     align-items: center;
-    gap: 5px;
+    gap: 12px;
 }
 
 section .item > div {
@@ -104,20 +97,30 @@ section .item > div {
     justify-content: center;
 }
 
+section .item > div > b {
+    font-weight: 600;
+    margin-bottom: 2px;
+}
+
 section .item > i {
-    font-size: 2rem;
+    font-size: 1.8rem;
+    color: var(--accent);
 }
 
 section.form {
     position: relative;
-    left: 50%;
-    transform: translateX(-50%);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100%;
-    margin-bottom: 50px;
+    padding: 40px 20px 60px;
+}
+
+section.form h1 {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 700;
+    margin-bottom: 10px;
 }
 
 section.form form {
@@ -125,7 +128,7 @@ section.form form {
     flex-direction: column;
     gap: 20px;
     width: 100%;
-    max-width: 600px;
+    max-width: 550px;
     margin: 20px 0 5px;
 }
 
@@ -135,25 +138,32 @@ section.form form {
 }
 
 .form-group label {
-    margin-bottom: 5px;
-    font-weight: bold;
-    color: white;
+    margin-bottom: 6px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
 }
 
 section.form form input,
 section.form form textarea {
     display: block;
     width: 100%;
-    padding: 10px;
-    margin: 5px 0;
-    font-size: 0.9rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    padding: 12px 16px;
+    margin: 4px 0;
+    font-size: 0.95rem;
+    font-family: var(--font);
+    color: var(--text-primary);
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    transition: var(--transition);
 }
 
 section.form form input:focus,
 section.form form textarea:focus {
-    outline: 2px solid lightskyblue;
+    outline: none;
+    border-color: var(--blue);
+    box-shadow: 0 0 0 3px var(--blue-soft);
 }
 
 section.form form textarea {
@@ -162,46 +172,67 @@ section.form form textarea {
 }
 
 section.form form input[type="submit"] {
-    background-color: lightgreen;
-    color: black;
+    background: var(--accent-gradient);
+    color: white;
     font-size: 1rem;
-    font-weight: bold;
+    font-weight: 600;
+    font-family: var(--font);
     border: none;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
     cursor: pointer;
-    transition: 0.3s;
+    transition: var(--transition);
+    padding: 14px;
+    border-radius: var(--radius-sm);
+    box-shadow: 0 4px 15px rgba(255, 77, 77, 0.3);
 }
 
 section.form form input[type="submit"]:hover {
-    opacity: 0.8;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(255, 77, 77, 0.4);
 }
 
 section.form form input[type="submit"]:active {
-    transform: translateY(2px);
+    transform: translateY(0);
 }
 
 section.form form input[type="submit"]:disabled {
-    opacity: 0.6;
+    opacity: 0.5;
     cursor: not-allowed;
+    transform: none;
 }
 
 .success-message {
-    background-color: #4caf50;
-    color: white;
-    padding: 15px;
+    background: rgba(76, 175, 80, 0.15);
+    color: #4caf50;
+    border: 1px solid rgba(76, 175, 80, 0.3);
+    padding: 14px 20px;
     margin: 10px 0;
-    border-radius: 4px;
+    border-radius: var(--radius-sm);
     text-align: center;
+    font-weight: 500;
+    animation: slideIn 0.3s ease-out;
 }
 
 .error-message {
-    background-color: #f44336;
-    color: white;
-    padding: 15px;
+    background: rgba(244, 67, 54, 0.15);
+    color: #f44336;
+    border: 1px solid rgba(244, 67, 54, 0.3);
+    padding: 14px 20px;
     margin: 10px 0;
-    border-radius: 4px;
+    border-radius: var(--radius-sm);
     text-align: center;
+    font-weight: 500;
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 @media only screen and (max-width: 768px) {
@@ -211,10 +242,6 @@ section.form form input[type="submit"]:disabled {
 
     section .info {
         flex-direction: column;
-        gap: 20px;
-    }
-
-    section .details {
         gap: 20px;
     }
 

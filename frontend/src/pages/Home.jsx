@@ -6,10 +6,11 @@ function Home() {
     const [roleText, setRoleText] = useState("");
     const roles = [
         "SAS Student",
-        "Game designer",
-        "Programmer",
+        "UI/UX Designer",
         "Web-developer",
-        "Badminton player",
+        "Go Player",
+        "Badminton Player",
+        "Machine Learner",
     ];
 
     useEffect(() => {
@@ -63,12 +64,6 @@ function Home() {
             ?.scrollIntoView({ behavior: "smooth" });
     };
 
-    const scrollToTop = () => {
-        document
-            .getElementById("intro")
-            ?.scrollIntoView({ behavior: "smooth" });
-    };
-
     return (
         <>
             <section id="intro">
@@ -96,12 +91,15 @@ function Home() {
                     <div>
                         <p>
                             I am a high school student with a passion for web
-                            development. I have some experiences in mostly
-                            front-end but also back-end development. I am
-                            proficient in HTML, CSS, and JavaScript, as well as
-                            some Python. I am also familiar with React and
-                            Node.js. I am always eager to learn new technologies
-                            and improve my skills.
+                            development and machine learning. Starting from
+                            middle school, I am able to develop full-stack
+                            websites from scratch. As a Go player, I was
+                            fascinated of the complex strategy behind, leading
+                            me to build my own{" "}
+                            <a href="https://github.com/YianXie/Mini-KataGo">
+                                Go engine
+                            </a>
+                            .
                             <br />
                             <br />
                             In addition to coding, I also love playing badminton
@@ -109,9 +107,9 @@ function Home() {
                             <a href="https://en.wikipedia.org/wiki/Go_(game)">
                                 Chinese Weiqi
                             </a>
-                            ! As a member of JV Blue school badminton team, I
-                            train 3 times a week, along with one extra session I
-                            have on each Saturday outside of school.
+                            ! In fact, I won 1st place in the 32nd Qiuping Cup
+                            Senior Group — A national Weiqi competition in
+                            Singapore.
                         </p>
                     </div>
                 </div>
@@ -122,79 +120,29 @@ function Home() {
                     <h1>Programming languages</h1>
                     <div>
                         <label htmlFor="html">HTML</label>
-                        <progress value="90" max="100" id="html">
-                            90%
-                        </progress>
+                        <progress value="90" max="100" id="html"></progress>
                     </div>
                     <div>
                         <label htmlFor="css">CSS</label>
-                        <progress value="90" max="100" id="css">
-                            90%
-                        </progress>
+                        <progress value="90" max="100" id="css"></progress>
                     </div>
                     <div>
                         <label htmlFor="js">JavaScript</label>
-                        <progress value="80" max="100" id="js">
-                            80%
-                        </progress>
+                        <progress value="80" max="100" id="js"></progress>
                     </div>
                     <div>
                         <label htmlFor="python">Python</label>
-                        <progress value="60" max="100" id="python">
-                            60%
-                        </progress>
+                        <progress value="80" max="100" id="python"></progress>
                     </div>
                     <div>
                         <label htmlFor="react">React / Node.js</label>
-                        <progress value="50" max="100" id="react">
-                            50%
-                        </progress>
+                        <progress value="60" max="100" id="react"></progress>
                     </div>
                     <small>
                         *My proficiency level in different programming languages
                     </small>
                 </div>
                 <img src="/images/image-3.jpg" alt="image-3.jpg" />
-            </section>
-
-            <section id="social-media">
-                <h1>Connect with me</h1>
-                <div className="socials">
-                    <div>
-                        <i
-                            className="bx bxl-github"
-                            onClick={() =>
-                                window.open("https://github.com/YianXie")
-                            }
-                        ></i>
-                        <p>GitHub</p>
-                    </div>
-                    <div>
-                        <i
-                            className="bx bxl-instagram-alt"
-                            onClick={() =>
-                                window.open(
-                                    "https://www.instagram.com/xya_ian_sg/"
-                                )
-                            }
-                        ></i>
-                        <p>Instagram</p>
-                    </div>
-                    <div>
-                        <i
-                            className="bx bxs-envelope"
-                            onClick={() =>
-                                window.open("mailto:yianxie52@gmail.com")
-                            }
-                        ></i>
-                        <p>Email</p>
-                    </div>
-                </div>
-
-                <div className="btn" onClick={scrollToTop}>
-                    <button>Back to the top</button>
-                    <i className="bx bx-up-arrow-alt" id="arrow-up"></i>
-                </div>
             </section>
         </>
     );

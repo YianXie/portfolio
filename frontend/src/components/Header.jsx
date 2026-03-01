@@ -44,16 +44,16 @@ function Header() {
                     <Link to="/projects" className="hide-mobile">
                         Projects
                     </Link>
+                    <Link to="/blog" className="hide-mobile">
+                        Blog
+                    </Link>
                     <Link to="/contact" className="hide-mobile">
                         Contacts
                     </Link>
                     <i
                         className="bxl bx-github hide-mobile"
                         onClick={() => {
-                            window.open(
-                                "https://github.com/YianXie/portfolio",
-                                "_blank"
-                            );
+                            window.open("https://github.com/YianXie", "_blank");
                         }}
                     ></i>
                     <i
@@ -80,16 +80,18 @@ function Header() {
                         </Link>
                     </li>
                     <li>
+                        <Link to="/blog" onClick={toggleMobileMenu}>
+                            Blog
+                        </Link>
+                    </li>
+                    <li>
                         <Link to="/contact" onClick={toggleMobileMenu}>
                             Contacts
                         </Link>
                     </li>
                     <li>
-                        <a>Dark/light mode</a>
-                    </li>
-                    <li>
                         <a href="https://github.com/YianXie/portfolio">
-                            GitHub repositery
+                            GitHub repository
                         </a>
                     </li>
                 </ul>
