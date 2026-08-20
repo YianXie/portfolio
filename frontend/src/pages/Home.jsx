@@ -83,11 +83,11 @@ function Home() {
 
             <section id="about">
                 <div>
-                    <h1>About me</h1>
+                    <h2>About me</h2>
                     <hr />
                 </div>
                 <div className="about-me">
-                    <img src="/images/image-2.jpg" alt="image-2.jpg" />
+                    <img src="/images/image-2.jpg" alt="Portrait of Yian (Ian) Xie" />
                     <div>
                         <p>
                             I am a high school student with a passion for web
@@ -118,7 +118,7 @@ function Home() {
             <section id="awards-experience">
                 <div className="awards-experience-inner">
                     <div>
-                        <h1>Awards & Experience</h1>
+                        <h2>Awards & Experience</h2>
                         <hr />
                     </div>
                     <div className="awards-experience-grid">
@@ -168,7 +168,7 @@ function Home() {
 
             <section id="coding">
                 <div>
-                    <h1>Programming languages</h1>
+                    <h2>Programming languages</h2>
                     <div>
                         <label htmlFor="html">HTML</label>
                         <progress value="90" max="100" id="html"></progress>
@@ -193,7 +193,7 @@ function Home() {
                         *My proficiency level in different programming languages
                     </small>
                 </div>
-                <img src="/images/image-3.jpg" alt="image-3.jpg" />
+                <img src="/images/image-3.jpg" alt="HTML5, CSS3 and JavaScript logos" />
             </section>
         </>
     );

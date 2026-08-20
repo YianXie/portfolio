@@ -57,7 +57,7 @@ function Contact() {
                 <div className="info">
                     <img
                         src="/images/social-media.png"
-                        alt="social-media.png"
+                        alt="Social media icons"
                         draggable="false"
                     />
                     <div className="items">
@@ -95,7 +95,7 @@ function Contact() {
             </section>
 
             <section className="form">
-                <h1>Send me a message online!</h1>
+                <h2>Send me a message online!</h2>
 
                 {successMessage && (
                     <div className="success-message">{successMessage}</div>

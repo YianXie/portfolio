@@ -2,16 +2,109 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
-        <link rel="icon" type="image/x-icon" href="/vite.png" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <!-- Primary meta -->
+        <title>Yian (Ian) Xie — Full-Stack Developer & Personal Portfolio</title>
+        <meta
+            name="description"
+            content="Yian (Ian) Xie is a high school developer building full-stack web apps and machine learning projects. Explore my projects, blog, and get in touch."
+        />
+        <meta name="author" content="Yian (Ian) Xie" />
+        <link rel="canonical" href="https://yianxie.me/" />
+
+        <!-- Icons -->
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <link rel="manifest" href="/site.webmanifest" />
+
+        <!-- Theme -->
+        <meta name="theme-color" content="#0a0a0f" />
+        <meta name="color-scheme" content="dark" />
+
+        <!-- Open Graph -->
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="Yian (Ian) Xie" />
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:url" content="https://yianxie.me/" />
+        <meta property="og:title" content="Yian (Ian) Xie — Full-Stack Developer & Personal Portfolio" />
+        <meta
+            property="og:description"
+            content="Yian (Ian) Xie is a high school developer building full-stack web apps and machine learning projects. Explore my projects, blog, and get in touch."
+        />
+        <meta property="og:image" content="https://yianxie.me/og-image.jpg" />
+        <meta property="og:image:type" content="image/jpeg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="Yian (Ian) Xie's Personal Portfolio" />
+
+        <!-- Twitter / X -->
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Yian (Ian) Xie — Full-Stack Developer & Personal Portfolio" />
+        <meta
+            name="twitter:description"
+            content="High school developer building full-stack web apps and machine learning projects. Explore my projects, blog, and get in touch."
+        />
+        <meta name="twitter:image" content="https://yianxie.me/og-image.jpg" />
+        <meta name="twitter:image:alt" content="Yian (Ian) Xie's Personal Portfolio" />
+
+        <!-- Performance: warm up the icon-font CDN before the stylesheet request -->
+        <link rel="preconnect" href="https://cdn.boxicons.com" crossorigin />
         <link
             href="https://cdn.boxicons.com/3.0.6/fonts/brands/boxicons-brands.min.css"
             rel="stylesheet"
         />
-        <title>Ian's Portfolio</title>
+
+        <!-- Structured data -->
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@graph": [
+                    {
+                        "@type": "Person",
+                        "@id": "https://yianxie.me/#person",
+                        "name": "Yian Xie",
+                        "alternateName": "Ian Xie",
+                        "url": "https://yianxie.me/",
+                        "image": "https://yianxie.me/og-image.jpg",
+                        "jobTitle": "Full-Stack Developer",
+                        "description": "High school student and full-stack developer working on web development and machine learning projects.",
+                        "knowsAbout": [
+                            "Web Development",
+                            "Full-Stack Development",
+                            "Machine Learning",
+                            "React",
+                            "Django",
+                            "Go (Weiqi)"
+                        ],
+                        "sameAs": ["https://github.com/YianXie"]
+                    },
+                    {
+                        "@type": "WebSite",
+                        "@id": "https://yianxie.me/#website",
+                        "url": "https://yianxie.me/",
+                        "name": "Yian (Ian) Xie",
+                        "description": "Personal portfolio of Yian (Ian) Xie — projects, blog, and contact.",
+                        "inLanguage": "en-US",
+                        "publisher": { "@id": "https://yianxie.me/#person" }
+                    }
+                ]
+            }
+        </script>
     </head>
     <body>
         <div id="root"></div>
+        <noscript>
+            <h1>Yian (Ian) Xie — Personal Portfolio</h1>
+            <p>
+                I'm a high school student and full-stack developer building web
+                apps and machine learning projects. This site needs JavaScript
+                enabled to load. You can reach me on
+                <a href="https://github.com/YianXie">GitHub</a>.
+            </p>
+        </noscript>
         <script type="module" src="/src/main.jsx"></script>
     </body>
 </html>

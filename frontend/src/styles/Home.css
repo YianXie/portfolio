@@ -102,7 +102,7 @@ section#about .about-me > div {
     align-items: flex-start;
 }
 
-section#about h1 {
+section#about h2 {
     font-size: clamp(2rem, 4vw, 3rem);
     font-weight: 800;
     letter-spacing: -1px;
@@ -155,7 +155,7 @@ section#awards-experience .awards-experience-inner {
     gap: 2rem;
 }
 
-section#awards-experience h1 {
+section#awards-experience h2 {
     font-size: clamp(2rem, 4vw, 3rem);
     font-weight: 800;
     letter-spacing: -1px;
@@ -265,7 +265,7 @@ section#coding {
     background: var(--bg-secondary);
 }
 
-section#coding h1 {
+section#coding h2 {
     font-size: clamp(2rem, 4vw, 3rem);
     font-weight: 800;
     letter-spacing: -1px;
