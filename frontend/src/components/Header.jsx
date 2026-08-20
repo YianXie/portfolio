@@ -44,9 +44,6 @@ function Header() {
                     <Link to="/projects" className="hide-mobile">
                         Projects
                     </Link>
-                    <Link to="/blog" className="hide-mobile">
-                        Blog
-                    </Link>
                     <Link to="/contact" className="hide-mobile">
                         Contacts
                     </Link>
@@ -77,11 +74,6 @@ function Header() {
                     <li>
                         <Link to="/projects" onClick={toggleMobileMenu}>
                             Projects
-                        </Link>
-                    </li>
-                    <li>
-                        <Link to="/blog" onClick={toggleMobileMenu}>
-                            Blog
                         </Link>
                     </li>
                     <li>
