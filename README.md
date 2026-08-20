@@ -197,7 +197,7 @@ The application uses vanilla CSS with a dark theme. Key style files:
 
 ## 📝 License
 
-All rights reserved © Ian Xie
+MIT License.
 
 ## 🤝 Contributing
 
