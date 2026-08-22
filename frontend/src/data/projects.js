@@ -65,9 +65,9 @@ const projects = [
         repo: "path-finder",
         icon: "/projects/pathfinder-icon.png",
         screenshot: "/projects/pathfinder-shot.jpg",
-        highlight: "2nd place — CSHS Hackathon",
+        highlight: "2nd place — SAS CSHS Hackathon",
         description:
-            "A personalized club and activity recommender for SAS students, powered by the OpenAI API. Built with my team for the annual SAS high school hackathon hosted by the Computer Science Honor Society, where it took 2nd place.",
+            "A full-stack web application that helps SAS students choose their extracurricular activities, with personalized club and activity recommendations powered by the OpenAI API. Built with my team for the SAS 2025 Highschool CSHS Hackathon, where it placed 2nd.",
         links: [
             {
                 label: "GitHub",
