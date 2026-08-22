@@ -17,7 +17,7 @@ section {
 }
 
 section#intro {
-    justify-content: flex-start;
+    justify-content: space-between;
     background: url("/images/black.jpg") no-repeat center center fixed;
     background-size: cover;
     height: 100vh;
@@ -36,9 +36,15 @@ section#intro::after {
     pointer-events: none;
 }
 
-section#intro > div {
+section#intro > .intro-text {
     position: relative;
     z-index: 1;
+}
+
+section#intro > .contribution-graph {
+    position: relative;
+    z-index: 1;
+    flex-shrink: 0;
 }
 
 section#intro h1 {
@@ -450,6 +456,23 @@ section img {
     }
     100% {
         opacity: 0;
+    }
+}
+
+@media only screen and (max-width: 1280px) {
+    section#intro {
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 2rem;
+        height: auto;
+        min-height: 100vh;
+        padding-top: 6rem;
+        padding-bottom: 3rem;
+    }
+
+    section#intro > .contribution-graph {
+        width: 100%;
     }
 }
 

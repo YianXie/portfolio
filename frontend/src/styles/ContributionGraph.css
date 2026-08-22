@@ -1,0 +1,158 @@
+.contribution-graph {
+    --cell: clamp(6px, 0.5vw, 10px);
+    --cell-gap: clamp(2px, 0.16vw, 3px);
+
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 1.25rem;
+    max-width: 100%;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--bg-glass);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: var(--shadow);
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.contribution-graph:hover {
+    border-color: var(--border-hover);
+    transform: translateY(-2px);
+}
+
+.contribution-graph.is-loading {
+    opacity: 0.6;
+}
+
+.contribution-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.contribution-header i {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+}
+
+.contribution-body {
+    display: flex;
+    gap: 0.5rem;
+    min-width: 0;
+}
+
+.contribution-weekdays {
+    display: grid;
+    grid-template-rows: repeat(7, var(--cell));
+    gap: var(--cell-gap);
+    /* Push the labels past the month row so they line up with the cells */
+    margin-top: calc(0.85rem + var(--cell-gap));
+    font-size: 0.65rem;
+    line-height: var(--cell);
+    color: var(--text-muted);
+}
+
+.contribution-calendar {
+    display: flex;
+    flex-direction: column;
+    gap: var(--cell-gap);
+    /* Only the calendar scrolls, so the weekday labels stay put */
+    overflow-x: auto;
+    padding-bottom: 0.25rem;
+}
+
+.contribution-calendar::-webkit-scrollbar {
+    height: 4px;
+}
+
+.contribution-calendar::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.contribution-months {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: var(--cell);
+    gap: var(--cell-gap);
+    height: 0.85rem;
+    font-size: 0.65rem;
+    color: var(--text-muted);
+}
+
+.contribution-months span {
+    /* Labels are wider than one column, so let them spill to the right */
+    overflow: visible;
+    white-space: nowrap;
+}
+
+.contribution-weeks {
+    display: flex;
+    gap: var(--cell-gap);
+}
+
+.contribution-week {
+    display: flex;
+    flex-direction: column;
+    gap: var(--cell-gap);
+}
+
+.contribution-day {
+    width: var(--cell);
+    height: var(--cell);
+    border-radius: 2px;
+    background: rgba(255, 255, 255, 0.06);
+    outline: 1px solid rgba(255, 255, 255, 0.03);
+    outline-offset: -1px;
+}
+
+.contribution-day[data-level="empty"] {
+    background: transparent;
+    outline: none;
+}
+
+.contribution-day[data-level="1"] {
+    background: #0e4429;
+}
+
+.contribution-day[data-level="2"] {
+    background: #006d32;
+}
+
+.contribution-day[data-level="3"] {
+    background: #26a641;
+}
+
+.contribution-day[data-level="4"] {
+    background: #39d353;
+}
+
+.contribution-legend {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: var(--cell-gap);
+    font-size: 0.65rem;
+    color: var(--text-muted);
+}
+
+.contribution-legend span:first-child {
+    margin-right: 0.25rem;
+}
+
+.contribution-legend span:last-child {
+    margin-left: 0.25rem;
+}
+
+@media only screen and (max-width: 1280px) {
+    .contribution-graph {
+        --cell: 10px;
+        --cell-gap: 3px;
+        width: 100%;
+    }
+}

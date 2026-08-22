@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 
+import ContributionGraph from "../components/ContributionGraph";
 import "../styles/Home.css";
 
 function Home() {
@@ -67,7 +68,7 @@ function Home() {
     return (
         <>
             <section id="intro">
-                <div>
+                <div className="intro-text">
                     <h1>Hello!</h1>
                     <h2>My name is Ian Xie. I am a:</h2>
                     <h2 id="dynamic-role" className="dynamic-role">
@@ -79,6 +80,8 @@ function Home() {
                         <i className="bx bx-down-arrow-alt"></i>
                     </div>
                 </div>
+
+                <ContributionGraph />
             </section>
 
             <section id="about">
