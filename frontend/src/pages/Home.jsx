@@ -128,10 +128,14 @@ function Home() {
                                 <i className="bx bx-trophy"></i>
                             </div>
                             <h3>2nd Place — Hackathon</h3>
-                            <p className="card-meta">Hackathon competition</p>
+                            <p className="card-meta">
+                                SAS 2025 Highschool CSHS Hackathon
+                            </p>
                             <p className="card-desc">
-                                Placed 2nd in a hackathon, building a full-stack
-                                project with my team.
+                                Placed 2nd in the hackathon with my PathFinder
+                                project, a full-stack web application that helps
+                                SAS students to choose their extracurricular
+                                activities.
                             </p>
                         </article>
                         <article
@@ -160,6 +164,40 @@ function Home() {
                             <p className="card-desc">
                                 Got promoted to the silver division in the 2026
                                 USACO third contest.
+                            </p>
+                        </article>
+                        <article className="experience-card" data-type="award">
+                            <span className="card-badge">Award</span>
+                            <div className="card-icon">
+                                <i className="bx bx-award"></i>
+                            </div>
+                            <h3>SIL Gold</h3>
+                            <p className="card-meta">
+                                2026 Singapore Informatics League
+                            </p>
+                            <p className="card-desc">
+                                Earned a Gold award in the 2026 Singapore
+                                Informatics League, a team-based competitive
+                                programming contest held in Singapore.
+                            </p>
+                        </article>
+                        <article
+                            className="experience-card"
+                            data-type="experience"
+                        >
+                            <span className="card-badge">Experience</span>
+                            <div className="card-icon">
+                                <i className="bx bx-book-open"></i>
+                            </div>
+                            <h3>Pre-College Scholar</h3>
+                            <p className="card-meta">
+                                UC Berkeley — Summer 2026
+                            </p>
+                            <p className="card-desc">
+                                Studied CS61C (Great Ideas in Computer
+                                Architecture) and CS70 (Discrete Mathematics and
+                                Probability Theory) at UC Berkeley, earning an A
+                                and a B+ respectively.
                             </p>
                         </article>
                     </div>
