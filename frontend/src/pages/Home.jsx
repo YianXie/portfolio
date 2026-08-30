@@ -90,7 +90,10 @@ function Home() {
                     <hr />
                 </div>
                 <div className="about-me">
-                    <img src="/images/image-2.jpg" alt="Portrait of Yian (Ian) Xie" />
+                    <img
+                        src="/images/image-2.jpg"
+                        alt="Portrait of Yian (Ian) Xie"
+                    />
                     <div>
                         <p>
                             I am a high school student with a passion for web
@@ -141,22 +144,6 @@ function Home() {
                                 activities.
                             </p>
                         </article>
-                        <article
-                            className="experience-card"
-                            data-type="experience"
-                        >
-                            <span className="card-badge">Experience</span>
-                            <div className="card-icon">
-                                <i className="bx bx-briefcase"></i>
-                            </div>
-                            <h3>Internship Program</h3>
-                            <p className="card-meta">Adobe</p>
-                            <p className="card-desc">
-                                Participated in Adobe&apos;s internship program,
-                                gaining industry experience in design and
-                                development.
-                            </p>
-                        </article>
                         <article className="experience-card" data-type="award">
                             <span className="card-badge">Award</span>
                             <div className="card-icon">
@@ -182,6 +169,38 @@ function Home() {
                                 Earned a Gold award in the 2026 Singapore
                                 Informatics League, a team-based competitive
                                 programming contest held in Singapore.
+                            </p>
+                        </article>
+                        <article
+                            className="experience-card"
+                            data-type="experience"
+                        >
+                            <span className="card-badge">Experience</span>
+                            <div className="card-icon">
+                                <i className="bx bx-briefcase"></i>
+                            </div>
+                            <h3>Internship Program</h3>
+                            <p className="card-meta">Adobe</p>
+                            <p className="card-desc">
+                                Participated in Adobe&apos;s internship program,
+                                gaining industry experience in design and
+                                development.
+                            </p>
+                        </article>
+                        <article className="experience-card" data-type="award">
+                            <span className="card-badge">Award</span>
+                            <div className="card-icon">
+                                <i className="bx bx-medal"></i>
+                            </div>
+                            <h3>CSHS Member</h3>
+                            <p className="card-meta">
+                                Member of the SAS Computer Science Honor Society
+                            </p>
+                            <p className="card-desc">
+                                Member of the SAS Computer Science Honor
+                                Society, a program that recognizes students for
+                                their academic excellence and leadership in
+                                computer science.
                             </p>
                         </article>
                         <article
@@ -234,7 +253,10 @@ function Home() {
                         *My proficiency level in different programming languages
                     </small>
                 </div>
-                <img src="/images/image-3.jpg" alt="HTML5, CSS3 and JavaScript logos" />
+                <img
+                    src="/images/image-3.jpg"
+                    alt="HTML5, CSS3 and JavaScript logos"
+                />
             </section>
         </>
     );

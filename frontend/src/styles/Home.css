@@ -150,6 +150,7 @@ section#awards-experience {
     flex-direction: column;
     background: var(--bg-primary);
     gap: 2rem;
+    padding-bottom: 4rem;
 }
 
 section#awards-experience .awards-experience-inner {
