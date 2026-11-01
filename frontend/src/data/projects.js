@@ -25,6 +25,31 @@ const projects = [
         fallbackLanguages: { Python: 323769, Shell: 2443, Makefile: 1224 },
     },
     {
+        id: "better-usaco",
+        name: "Better USACO",
+        owner: "YianXie",
+        repo: "better-usaco",
+        icon: "/projects/better-usaco-icon.png",
+        screenshot: "/projects/better-usaco-shot.jpg",
+        highlight: "500+ installs",
+        description:
+            "A quality-of-life Chrome extension that rebuilds the usaco.org experience — dark mode, cleaner problem pages, and readable contest analyses. Over 400 installs on the Chrome Web Store with 25+ weekly active users.",
+        links: [
+            {
+                label: "Chrome Web Store",
+                href: "https://chromewebstore.google.com/detail/usaco-dark-mode/mcmnjckmjhifcbfcakbpiedemkmdgahn",
+                icon: "bx bx-download",
+                primary: true,
+            },
+            {
+                label: "GitHub",
+                href: "https://github.com/YianXie/better-usaco",
+                icon: "bx bxl-github",
+            },
+        ],
+        fallbackLanguages: { JavaScript: 36890, CSS: 24972, HTML: 7450 },
+    },
+    {
         id: "kifu-sensei",
         name: "Kifu-Sensei",
         owner: "YianXie",
@@ -84,31 +109,6 @@ const projects = [
             HTML: 792,
             CSS: 139,
         },
-    },
-    {
-        id: "better-usaco",
-        name: "Better USACO",
-        owner: "YianXie",
-        repo: "better-usaco",
-        icon: "/projects/better-usaco-icon.png",
-        screenshot: "/projects/better-usaco-shot.jpg",
-        highlight: "400+ installs",
-        description:
-            "A quality-of-life Chrome extension that rebuilds the usaco.org experience — dark mode, cleaner problem pages, and readable contest analyses. Over 400 installs on the Chrome Web Store with 25+ weekly active users.",
-        links: [
-            {
-                label: "Chrome Web Store",
-                href: "https://chromewebstore.google.com/detail/usaco-dark-mode/mcmnjckmjhifcbfcakbpiedemkmdgahn",
-                icon: "bx bx-download",
-                primary: true,
-            },
-            {
-                label: "GitHub",
-                href: "https://github.com/YianXie/better-usaco",
-                icon: "bx bxl-github",
-            },
-        ],
-        fallbackLanguages: { JavaScript: 36890, CSS: 24972, HTML: 7450 },
     },
 ];
 
