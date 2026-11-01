@@ -168,7 +168,7 @@ section.form form textarea:focus {
 
 section.form form textarea {
     min-height: 150px;
-    resize: vertical;
+    resize: none;
 }
 
 section.form form input[type="submit"] {
