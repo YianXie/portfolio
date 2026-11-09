@@ -1,94 +1,43 @@
-import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 import "../styles/Header.css";
 
+const TABS = [
+    { to: "/", index: 0, label: "home" },
+    { to: "/projects", index: 1, label: "projects" },
+    { to: "/contact", index: 2, label: "contact" },
+];
+
+// Styled as a tmux status line: window list on the left, session info right
 function Header() {
-    const [isScrolled, setIsScrolled] = useState(false);
-    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-    useEffect(() => {
-        const handleScroll = () => {
-            setIsScrolled(window.scrollY > 50);
-        };
-
-        window.addEventListener("scroll", handleScroll);
-        return () => window.removeEventListener("scroll", handleScroll);
-    }, []);
-
-    useEffect(() => {
-        const handleClickOutside = (e) => {
-            if (
-                !e.target.closest("#mobile-burger") &&
-                !e.target.closest("#mobile-burger-menu")
-            ) {
-                setIsMobileMenuOpen(false);
-            }
-        };
-
-        document.addEventListener("click", handleClickOutside);
-        return () => document.removeEventListener("click", handleClickOutside);
-    }, []);
-
-    const toggleMobileMenu = () => {
-        setIsMobileMenuOpen(!isMobileMenuOpen);
-    };
-
     return (
-        <>
-            <header>
-                <nav className={isScrolled ? "scroll" : ""}>
-                    <Link to="/" title="Home">
-                        Ian's Portfolio
-                    </Link>
-                    <Link to="/projects" className="hide-mobile">
-                        Projects
-                    </Link>
-                    <Link to="/contact" className="hide-mobile">
-                        Contacts
-                    </Link>
-                    <i
-                        className="bxl bx-github hide-mobile"
-                        onClick={() => {
-                            window.open("https://github.com/YianXie", "_blank");
-                        }}
-                    ></i>
-                    <i
-                        className="bx bx-list-ul show-mobile"
-                        id="mobile-burger-menu"
-                        onClick={toggleMobileMenu}
-                    ></i>
-                </nav>
-            </header>
-
-            <div
-                id="mobile-burger"
-                className={isMobileMenuOpen ? "active" : ""}
-            >
-                <i
-                    className="bx bx-x"
-                    id="close-mobile-burger"
-                    onClick={toggleMobileMenu}
-                ></i>
-                <ul>
-                    <li>
-                        <Link to="/projects" onClick={toggleMobileMenu}>
-                            Projects
-                        </Link>
-                    </li>
-                    <li>
-                        <Link to="/contact" onClick={toggleMobileMenu}>
-                            Contacts
-                        </Link>
-                    </li>
-                    <li>
-                        <a href="https://github.com/YianXie/portfolio">
-                            GitHub repository
-                        </a>
-                    </li>
-                </ul>
+        <nav className="status-bar" aria-label="Primary">
+            <div className="status-windows">
+                <span className="status-session">[19x19]</span>
+                {TABS.map(({ to, index, label }) => (
+                    <NavLink
+                        key={to}
+                        to={to}
+                        end
+                        className={({ isActive }) =>
+                            `status-tab${isActive ? " is-active" : ""}`
+                        }
+                    >
+                        {({ isActive }) =>
+                            `${index}:${label}${isActive ? "*" : ""}`
+                        }
+                    </NavLink>
+                ))}
             </div>
-        </>
+            <a
+                className="status-tab status-github"
+                href="https://github.com/YianXie"
+                target="_blank"
+                rel="noreferrer"
+            >
+                github.com/YianXie
+            </a>
+        </nav>
     );
 }
 

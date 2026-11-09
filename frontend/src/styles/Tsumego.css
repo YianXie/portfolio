@@ -1,0 +1,118 @@
+.tsumego {
+    flex: 1 1 560px;
+    min-width: 0;
+    max-width: 680px;
+}
+
+.tsumego-heading {
+    margin-bottom: 20px;
+}
+
+.tsumego-board {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 408 / 284;
+    background: var(--board-surface);
+    border-radius: 3px;
+}
+
+.tsumego-board svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.tsumego-board line {
+    stroke: var(--grid);
+    stroke-opacity: 0.7;
+    stroke-width: 1px;
+    vector-effect: non-scaling-stroke;
+}
+
+.tsumego-board line.is-edge {
+    stroke-width: 2px;
+}
+
+.tsumego-board text {
+    fill: var(--grid);
+    font-family: var(--font-mono);
+    font-size: 12px;
+}
+
+.tsumego-stone,
+.tsumego-point {
+    position: absolute;
+    aspect-ratio: 1;
+    translate: -50% -50%;
+    border-radius: 50%;
+}
+
+.tsumego-stone {
+    width: 8.82%;
+    border: 1px solid var(--stone-line);
+    box-shadow: var(--stone-shadow);
+    animation: stone-land 0.3s ease-out backwards;
+}
+
+.tsumego-stone--B {
+    background: var(--stone-black-fill);
+}
+
+.tsumego-stone--W {
+    background: var(--stone-white-fill);
+}
+
+.tsumego-stone.is-last {
+    outline: 3px solid var(--hanko);
+    outline-offset: 1px;
+}
+
+.tsumego-point {
+    width: 9.6%;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+}
+
+.tsumego-point:focus-visible {
+    outline-color: var(--bright);
+    outline-offset: 0;
+}
+
+@media (hover: hover) {
+    .tsumego-point:hover {
+        background: rgb(17 13 20 / 62%);
+    }
+}
+
+.tsumego-log {
+    min-height: 148px;
+    margin-top: 16px;
+}
+
+.tsumego-command {
+    margin-bottom: 6px;
+    color: var(--shell-dim);
+}
+
+.tsumego-response {
+    margin-bottom: 6px;
+    color: var(--prompt);
+}
+
+.tsumego-response:empty {
+    display: none;
+}
+
+.tsumego-message {
+    font-size: 17px;
+    line-height: 1.5;
+    color: var(--bright);
+}
+
+.tsumego-note {
+    margin-top: 8px;
+    color: var(--shell-dim);
+}

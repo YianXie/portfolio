@@ -1,0 +1,164 @@
+.goban {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1;
+    background: var(--board-surface);
+    border-radius: 4px;
+    box-shadow:
+        inset 0 0 0 1px rgb(255 255 255 / 16%),
+        0 40px 90px -50px rgb(0 0 0 / 80%);
+    container-type: inline-size;
+}
+
+.goban-lines {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Drawn in board units, not a hairline, so the opening can dash them on */
+.goban-lines line {
+    stroke: var(--grid);
+    stroke-opacity: 0.62;
+    stroke-width: 0.15;
+    stroke-dasharray: 90;
+}
+
+.goban-lines circle {
+    fill: var(--grid);
+}
+
+.goban-lines text {
+    fill: var(--grid);
+    font-family: var(--font-mono);
+    font-size: 1.4px;
+}
+
+.goban-stone,
+.goban-next {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 4.7%;
+    aspect-ratio: 1;
+    padding: 0;
+    translate: -50% -50%;
+    border-radius: 50%;
+    font-family: var(--font-display);
+    font-stretch: 75%;
+    font-weight: 600;
+    font-size: clamp(6px, 1.8cqw, 13px);
+    line-height: 1;
+}
+
+.goban-stone {
+    cursor: pointer;
+    box-shadow: var(--stone-shadow);
+    transition:
+        opacity 0.35s ease,
+        box-shadow 0.2s ease;
+}
+
+.goban-stone--black {
+    background: var(--stone-black-fill);
+    color: var(--stone-white);
+    border: 1px solid #0b090f;
+}
+
+.goban-stone--white {
+    background: var(--stone-white-fill);
+    color: var(--stone-black);
+    border: 1px solid var(--stone-line);
+}
+
+/* Moves not played yet read as pencil marks on the board */
+.goban-stone.is-future {
+    box-shadow: none;
+}
+
+.goban-stone--black.is-future {
+    background: #452b1c;
+    color: #dcc6a6;
+    border-color: rgb(228 207 175 / 28%);
+}
+
+.goban-stone--white.is-future {
+    background: #b89b7d;
+    color: #2a1b12;
+    border-color: rgb(42 27 18 / 45%);
+}
+
+.goban-stone.is-current {
+    outline: 3px solid var(--hanko);
+    outline-offset: 1px;
+    animation: stone-land 0.34s cubic-bezier(0.3, 0.7, 0.3, 1) backwards;
+}
+
+/* The ripple a stone leaves when it lands */
+.goban-stone.is-current::after {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: 50%;
+    border: 1px solid var(--grid);
+    opacity: 0;
+    pointer-events: none;
+    animation: stone-ripple 0.6s ease-out backwards;
+}
+
+.goban-stone:focus-visible {
+    outline: 3px solid var(--bright);
+    outline-offset: 1px;
+}
+
+@media (hover: hover) {
+    .goban-stone:hover {
+        box-shadow:
+            0 0 0 2px var(--hanko),
+            var(--stone-shadow);
+    }
+
+    .goban-stone.is-future:hover {
+        border-color: var(--bright);
+    }
+}
+
+.goban-next {
+    border: 1.5px dashed var(--grid);
+    background: rgb(244 239 230 / 14%);
+    color: var(--bright);
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+}
+
+.goban-next:hover {
+    color: var(--stone-black);
+    background: var(--stone-white);
+}
+
+.goban-next:focus-visible {
+    outline-color: var(--bright);
+}
+
+/* Stones are too small to tap on a phone, so the stepper drives the board */
+@media (max-width: 640px) {
+    .goban-lines line {
+        stroke-width: 0.22;
+    }
+
+    .goban-lines text,
+    .goban-next,
+    .goban-stone span {
+        display: none;
+    }
+
+    .goban-stone {
+        pointer-events: none;
+    }
+
+    .goban-stone.is-current {
+        outline-width: 2px;
+    }
+}

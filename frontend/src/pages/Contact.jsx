@@ -1,6 +1,8 @@
 import axios from "axios";
 import { useState } from "react";
 
+import Prompt from "../components/Prompt";
+import Tsumego from "../components/Tsumego";
 import "../styles/Contact.css";
 
 function Contact() {
@@ -48,108 +50,118 @@ function Contact() {
 
     return (
         <>
-            <section className="contact">
-                <div className="title">
-                    <h1>Contact me</h1>
-                    <p>Get in touch</p>
-                </div>
+            <header className="wrap contact-header">
+                <h1 className="display" data-reveal="lines">
+                    <span className="line">
+                        <span>White to play.</span>
+                    </span>
+                    <span className="line">
+                        <span style={{ "--d": "120ms" }}>Your move.</span>
+                    </span>
+                </h1>
+            </header>
 
-                <div className="info">
-                    <img
-                        src="/images/social-media.png"
-                        alt="Social media icons"
-                        draggable="false"
-                    />
-                    <div className="items">
-                        <div className="item">
-                            <i className="bx bxs-user-badge"></i>
-                            <div>
-                                <b>Name</b>
-                                <p>Yian (Ian) Xie</p>
-                            </div>
+            <div className="wrap contact-body">
+                <section
+                    className="mail"
+                    aria-labelledby="mail-heading"
+                    data-reveal="rise"
+                    style={{ "--d": "260ms" }}
+                >
+                    <Prompt as="h2" id="mail-heading" className="mail-heading">
+                        mail -s &quot;your move&quot; ian
+                    </Prompt>
+
+                    {successMessage && (
+                        <p className="mail-status" role="status">
+                            = {successMessage}
+                        </p>
+                    )}
+                    {errorMessage && (
+                        <p
+                            className="mail-status mail-status--error"
+                            role="alert"
+                        >
+                            ? {errorMessage}
+                        </p>
+                    )}
+
+                    <form className="mail-form" onSubmit={handleSubmit}>
+                        <div>
+                            <label htmlFor="name">name:</label>
+                            <input
+                                type="text"
+                                id="name"
+                                name="name"
+                                value={formData.name}
+                                onChange={handleChange}
+                                autoComplete="name"
+                                required
+                            />
                         </div>
-                        <div className="item">
-                            <i className="bx bxl-github"></i>
-                            <div>
-                                <b>GitHub</b>
-                                <p>
-                                    <a href="https://github.com/YianXie">
-                                        YianXie
-                                    </a>
-                                </p>
-                            </div>
+
+                        <div>
+                            <label htmlFor="email">from:</label>
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                value={formData.email}
+                                onChange={handleChange}
+                                autoComplete="email"
+                                required
+                            />
                         </div>
-                        <div className="item">
-                            <i className="bx bxs-envelope"></i>
-                            <div>
-                                <b>Email</b>
-                                <p>
-                                    <a href="mailto:yianxie52@gmail.com">
-                                        yianxie52@gmail.com
-                                    </a>
-                                </p>
-                            </div>
+
+                        <div>
+                            <label htmlFor="message">body:</label>
+                            <textarea
+                                id="message"
+                                name="message"
+                                rows="5"
+                                value={formData.message}
+                                onChange={handleChange}
+                                required
+                            ></textarea>
                         </div>
-                    </div>
-                </div>
-            </section>
 
-            <section className="form">
-                <h2>Send me a message online!</h2>
+                        <div>
+                            <button
+                                type="submit"
+                                className="btn btn--primary"
+                                disabled={isSubmitting}
+                            >
+                                {isSubmitting ? "sending…" : "send ↵"}
+                            </button>
+                        </div>
+                    </form>
 
-                {successMessage && (
-                    <div className="success-message">{successMessage}</div>
-                )}
-                {errorMessage && (
-                    <div className="error-message">{errorMessage}</div>
-                )}
+                    <dl className="mail-links">
+                        <div>
+                            <dt>email</dt>
+                            <dd>
+                                <a href="mailto:yianxie52@gmail.com">
+                                    yianxie52@gmail.com
+                                </a>
+                            </dd>
+                        </div>
+                        <div>
+                            <dt>github</dt>
+                            <dd>
+                                <a
+                                    href="https://github.com/YianXie"
+                                    target="_blank"
+                                    rel="noreferrer"
+                                >
+                                    YianXie
+                                </a>
+                            </dd>
+                        </div>
+                    </dl>
+                </section>
 
-                <form onSubmit={handleSubmit}>
-                    <div className="form-group">
-                        <label htmlFor="name">Your Name</label>
-                        <input
-                            type="text"
-                            id="name"
-                            name="name"
-                            value={formData.name}
-                            onChange={handleChange}
-                            placeholder="Your name"
-                            required
-                        />
-                    </div>
-
-                    <div className="form-group">
-                        <label htmlFor="email">Your Email</label>
-                        <input
-                            type="email"
-                            id="email"
-                            name="email"
-                            value={formData.email}
-                            onChange={handleChange}
-                            placeholder="Your email"
-                            required
-                        />
-                    </div>
-
-                    <div className="form-group">
-                        <label htmlFor="message">Your Message</label>
-                        <textarea
-                            id="message"
-                            name="message"
-                            value={formData.message}
-                            onChange={handleChange}
-                            placeholder="What's on your mind?"
-                            required
-                        ></textarea>
-                    </div>
-
-                    <input
-                        type="submit"
-                        value={isSubmitting ? "Sending..." : "Send"}
-                        disabled={isSubmitting}
-                    />
-                </form>
-            </section>
+                <Tsumego />
+            </div>
         </>
     );
 }

@@ -1,28 +1,15 @@
 import { useEffect, useRef, useState } from "react";
 
+import useMediaQuery, { PHONE_QUERY } from "../hooks/useMediaQuery";
 import "../styles/ContributionGraph.css";
 
 const USERNAME = "YianXie";
 const API_URL = `https://github-contributions-api.jogruber.de/v4/${USERNAME}?y=last`;
 const CACHE_KEY = "github-contributions";
 const CACHE_TTL = 6 * 60 * 60 * 1000; // 6 hours
-
-const MONTHS = [
-    "Jan",
-    "Feb",
-    "Mar",
-    "Apr",
-    "May",
-    "Jun",
-    "Jul",
-    "Aug",
-    "Sep",
-    "Oct",
-    "Nov",
-    "Dec",
-];
-// Only every other weekday gets a label, the same way GitHub does it
-const WEEKDAYS = ["", "Mon", "", "Wed", "", "Fri", ""];
+const PHONE_WEEKS = 19;
+const BLACK_STONE_MIN = 6;
+const CELL = 10;
 
 const parseDay = (date) => new Date(`${date}T00:00:00`);
 
@@ -45,22 +32,6 @@ function buildWeeks(days) {
     }
 
     return weeks;
-}
-
-// A month label sits above the first week-column that belongs to that month
-function buildMonthLabels(weeks) {
-    let lastMonth = -1;
-
-    return weeks.map((week) => {
-        const firstDay = week.find(Boolean);
-        if (!firstDay) return "";
-
-        const month = parseDay(firstDay.date).getMonth();
-        if (month === lastMonth) return "";
-
-        lastMonth = month;
-        return MONTHS[month];
-    });
 }
 
 function describeDay(day) {
@@ -99,7 +70,8 @@ function writeCache(data) {
 function ContributionGraph() {
     const [data, setData] = useState(readCache);
     const [failed, setFailed] = useState(false);
-    const calendarRef = useRef(null);
+    const isPhone = useMediaQuery(PHONE_QUERY);
+    const scrollerRef = useRef(null);
 
     useEffect(() => {
         if (data) return;
@@ -124,82 +96,92 @@ function ContributionGraph() {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
-    // When the calendar is too narrow to fit, show the most recent weeks first
+    // When the board is too narrow to fit, show the most recent weeks first
     useEffect(() => {
-        const calendar = calendarRef.current;
-        if (calendar) calendar.scrollLeft = calendar.scrollWidth;
-    }, [data]);
+        const scroller = scrollerRef.current;
+        if (scroller) scroller.scrollLeft = scroller.scrollWidth;
+    }, [data, isPhone]);
 
-    // The hero reads fine without the graph, so stay out of the way on failure
+    // The section reads fine without the board, so stay out of the way
     if (failed) return null;
 
-    // Placeholder columns keep the card from collapsing while loading
-    const weeks = data
+    // Placeholder columns keep the board from collapsing while loading
+    const allWeeks = data
         ? buildWeeks(data.contributions)
         : Array.from({ length: 53 }, () => new Array(7).fill(null));
-    const monthLabels = buildMonthLabels(weeks);
+    const weeks = isPhone ? allWeeks.slice(-PHONE_WEEKS) : allWeeks;
     const total = data?.total?.lastYear ?? 0;
+    const width = weeks.length * CELL;
+    const height = 7 * CELL;
+    const center = (index) => (index + 0.5) * CELL;
 
     return (
-        <a
-            className={`contribution-graph${data ? "" : " is-loading"}`}
-            href={`https://github.com/${USERNAME}`}
-            target="_blank"
-            rel="noreferrer"
-            aria-label={`${total} GitHub contributions in the last year`}
-        >
-            <div className="contribution-header">
-                <i className="bx bxl-github"></i>
+        <div className="contrib">
+            <div className="contrib-summary" data-reveal="rise">
                 <span>
                     {data
                         ? `${total.toLocaleString()} contributions in the last year`
                         : "Loading contributions…"}
                 </span>
+                <span className="contrib-legend">
+                    one stone per active day · white 1–5 · black 6+
+                </span>
             </div>
 
-            <div className="contribution-body">
-                <div className="contribution-weekdays" aria-hidden="true">
-                    {WEEKDAYS.map((label, index) => (
-                        <span key={index}>{label}</span>
+            <div
+                className={`contrib-scroller${isPhone ? " is-phone" : ""}`}
+                ref={scrollerRef}
+                data-reveal="stones"
+            >
+                <svg
+                    className="contrib-board"
+                    viewBox={`0 0 ${width} ${height}`}
+                    role="img"
+                    aria-label={`Contribution calendar drawn as stones on a ${weeks.length} by 7 board.${
+                        data ? ` ${total} contributions in the last year.` : ""
+                    }`}
+                >
+                    {weeks.map((_, x) => (
+                        <line
+                            key={x}
+                            x1={center(x)}
+                            y1={center(0)}
+                            x2={center(x)}
+                            y2={center(6)}
+                        />
                     ))}
-                </div>
-
-                <div className="contribution-calendar" ref={calendarRef}>
-                    <div className="contribution-months" aria-hidden="true">
-                        {monthLabels.map((label, index) => (
-                            <span key={index}>{label}</span>
-                        ))}
-                    </div>
-
-                    <div className="contribution-weeks">
-                        {weeks.map((week, weekIndex) => (
-                            <div className="contribution-week" key={weekIndex}>
-                                {week.map((day, dayIndex) => (
-                                    <span
-                                        key={day ? day.date : dayIndex}
-                                        className="contribution-day"
-                                        data-level={day ? day.level : "empty"}
-                                        title={day ? describeDay(day) : ""}
-                                    ></span>
-                                ))}
-                            </div>
-                        ))}
-                    </div>
-                </div>
+                    {[0, 1, 2, 3, 4, 5, 6].map((y) => (
+                        <line
+                            key={y}
+                            x1={center(0)}
+                            y1={center(y)}
+                            x2={center(weeks.length - 1)}
+                            y2={center(y)}
+                        />
+                    ))}
+                    {weeks.map((week, x) =>
+                        week.map((day, y) =>
+                            day && day.count > 0 ? (
+                                <circle
+                                    key={day.date}
+                                    cx={center(x)}
+                                    cy={center(y)}
+                                    r="4.4"
+                                    style={{ "--x": x, "--y": y }}
+                                    className={
+                                        day.count >= BLACK_STONE_MIN
+                                            ? "is-black"
+                                            : "is-white"
+                                    }
+                                >
+                                    <title>{describeDay(day)}</title>
+                                </circle>
+                            ) : null
+                        )
+                    )}
+                </svg>
             </div>
-
-            <div className="contribution-legend" aria-hidden="true">
-                <span>Less</span>
-                {[0, 1, 2, 3, 4].map((level) => (
-                    <span
-                        key={level}
-                        className="contribution-day"
-                        data-level={level}
-                    ></span>
-                ))}
-                <span>More</span>
-            </div>
-        </a>
+        </div>
     );
 }
 
